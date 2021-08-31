@@ -18,9 +18,9 @@ jobs:
 
         with:
 
-          find: "alita"
+          find: "DivideProjects"
 
-          replace: "ineruki"
+          replace: "Ryoishin"
 
       - name: Create Pull Request
 
