@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -21,13 +21,13 @@ from pyrogram.types import CallbackQuery, Message
 from pyromod.helpers import ikb
 
 from alita import LOGGER
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.rules_db import Rules
 from alita.tr_engine import tlang
 from alita.utils.custom_filters import admin_filter, command
 
 
-@Alita.on_message(command("rules") & filters.group)
+@Ineruki.on_message(command("rules") & filters.group)
 async def get_rules(_, m: Message):
     db = Rules(m.chat.id)
     msg_id = m.reply_to_message.message_id if m.reply_to_message else m.message_id
@@ -77,7 +77,7 @@ async def get_rules(_, m: Message):
     return
 
 
-@Alita.on_message(command("setrules") & admin_filter)
+@Ineruki.on_message(command("setrules") & admin_filter)
 async def set_rules(_, m: Message):
     db = Rules(m.chat.id)
     if m.reply_to_message and m.reply_to_message.text:
@@ -95,7 +95,7 @@ async def set_rules(_, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["privrules", "privaterules"]) & admin_filter,
 )
 async def priv_rules(_, m: Message):
@@ -126,7 +126,7 @@ async def priv_rules(_, m: Message):
     return
 
 
-@Alita.on_message(command("clearrules") & admin_filter)
+@Ineruki.on_message(command("clearrules") & admin_filter)
 async def clear_rules(_, m: Message):
     db = Rules(m.chat.id)
 
@@ -144,7 +144,7 @@ async def clear_rules(_, m: Message):
     return
 
 
-@Alita.on_callback_query(filters.regex("^clear_rules$"))
+@Ineruki.on_callback_query(filters.regex("^clear_rules$"))
 async def clearrules_callback(_, q: CallbackQuery):
     Rules(q.message.chat.id).clear_rules()
     await q.message.edit_text(tlang(q, "rules.cleared"))

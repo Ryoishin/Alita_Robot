@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -22,7 +22,7 @@ from pyrogram.types import CallbackQuery, Message
 from pyromod.helpers import ikb
 
 from alita import LOGGER
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.lang_db import Langs
 from alita.tr_engine import lang_dict, tlang
 from alita.utils.custom_filters import admin_filter, command
@@ -48,7 +48,7 @@ async def gen_langs_kb():
     ]
 
 
-@Alita.on_callback_query(filters.regex("^chlang$"))
+@Ineruki.on_callback_query(filters.regex("^chlang$"))
 async def chlang_callback(_, q: CallbackQuery):
     kb = await gen_langs_kb()
     kb.append([(f"« {(tlang(q, 'general.back_btn'))}", "start_back")])
@@ -61,7 +61,7 @@ async def chlang_callback(_, q: CallbackQuery):
     return
 
 
-@Alita.on_callback_query(filters.regex("^close$"), group=3)
+@Ineruki.on_callback_query(filters.regex("^close$"), group=3)
 async def close_btn_callback(_, q: CallbackQuery):
     await q.message.delete()
     try:
@@ -72,7 +72,7 @@ async def close_btn_callback(_, q: CallbackQuery):
     return
 
 
-@Alita.on_callback_query(filters.regex("^set_lang."))
+@Ineruki.on_callback_query(filters.regex("^set_lang."))
 async def set_lang_callback(_, q: CallbackQuery):
     lang_code = q.data.split(".")[1]
 
@@ -91,7 +91,7 @@ async def set_lang_callback(_, q: CallbackQuery):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["lang", "setlang"]) & (admin_filter | filters.private),
     group=7,
 )

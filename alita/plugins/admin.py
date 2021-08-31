@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -28,7 +28,7 @@ from pyrogram.types import Message
 from traceback import format_exc
 
 from alita import LOGGER, SUPPORT_GROUP, SUPPORT_STAFF
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.approve_db import Approve
 from alita.database.reporting_db import Reporting
 from alita.tr_engine import tlang
@@ -38,7 +38,7 @@ from alita.utils.extract_user import extract_user
 from alita.utils.parser import mention_html
 
 
-@Alita.on_message(command("adminlist") & filters.group)
+@Ineruki.on_message(command("adminlist") & filters.group)
 async def adminlist_show(_, m: Message):
     global ADMIN_CACHE
     try:
@@ -103,7 +103,7 @@ async def adminlist_show(_, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("admincache") & admin_filter,
 )
 async def reload_admins(_, m: Message):
@@ -135,7 +135,7 @@ async def reload_admins(_, m: Message):
     return
 
 
-@Alita.on_message(filters.regex(r"^(?i)@admin(s)?") & filters.group)
+@Ineruki.on_message(filters.regex(r"^(?i)@admin(s)?") & filters.group)
 async def tag_admins(_, m: Message):
     db = Reporting(m.chat.id)
     if not db.get_settings():
@@ -158,10 +158,10 @@ async def tag_admins(_, m: Message):
     )
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("promote") & promote_filter,
 )
-async def promote_usr(c: Alita, m: Message):
+async def promote_usr(c: Ineruki, m: Message):
     from alita import BOT_ID
 
     global ADMIN_CACHE
@@ -263,10 +263,10 @@ async def promote_usr(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("demote") & promote_filter,
 )
-async def demote_usr(c: Alita, m: Message):
+async def demote_usr(c: Ineruki, m: Message):
     from alita import BOT_ID
 
     global ADMIN_CACHE
@@ -345,10 +345,10 @@ async def demote_usr(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("invitelink"),
 )
-async def get_invitelink(c: Alita, m: Message):
+async def get_invitelink(c: Ineruki, m: Message):
     # Bypass the bot devs, sudos and owner
     if m.from_user.id not in DEV_LEVEL:
         user = await m.chat.get_member(m.from_user.id)

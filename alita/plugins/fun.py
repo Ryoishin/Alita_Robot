@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -20,14 +20,14 @@ from html import escape
 from pyrogram.types import Message
 from secrets import choice
 
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.tr_engine import tlang
 from alita.utils import fun_strings
 from alita.utils.custom_filters import command
 from alita.utils.extract_user import extract_user
 
 
-@Alita.on_message(command("shout"))
+@Ineruki.on_message(command("shout"))
 async def fun_shout(_, m: Message):
     if len(m.text.split()) == 1:
         await m.reply_text(
@@ -47,14 +47,14 @@ async def fun_shout(_, m: Message):
     return
 
 
-@Alita.on_message(command("runs"))
+@Ineruki.on_message(command("runs"))
 async def fun_run(_, m: Message):
     await m.reply_text(choice(fun_strings.RUN_STRINGS))
     return
 
 
-@Alita.on_message(command("slap"))
-async def fun_slap(c: Alita, m: Message):
+@Ineruki.on_message(command("slap"))
+async def fun_slap(c: Ineruki, m: Message):
     me = await c.get_me()
 
     reply_text = m.reply_to_message.reply_text if m.reply_to_message else m.reply_text
@@ -86,28 +86,28 @@ async def fun_slap(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("roll"))
+@Ineruki.on_message(command("roll"))
 async def fun_roll(_, m: Message):
     reply_text = m.reply_to_message.reply_text if m.reply_to_message else m.reply_text
     await reply_text(choice(range(1, 7)))
     return
 
 
-@Alita.on_message(command("toss"))
+@Ineruki.on_message(command("toss"))
 async def fun_toss(_, m: Message):
     reply_text = m.reply_to_message.reply_text if m.reply_to_message else m.reply_text
     await reply_text(choice(fun_strings.TOSS))
     return
 
 
-@Alita.on_message(command("shrug"))
+@Ineruki.on_message(command("shrug"))
 async def fun_shrug(_, m: Message):
     reply_text = m.reply_to_message.reply_text if m.reply_to_message else m.reply_text
     await reply_text(r"¯\_(ツ)_/¯")
     return
 
 
-@Alita.on_message(command("bluetext"))
+@Ineruki.on_message(command("bluetext"))
 async def fun_bluetext(_, m: Message):
     reply_text = m.reply_to_message.reply_text if m.reply_to_message else m.reply_text
     await reply_text(
@@ -116,14 +116,14 @@ async def fun_bluetext(_, m: Message):
     return
 
 
-@Alita.on_message(command("decide"))
+@Ineruki.on_message(command("decide"))
 async def fun_decide(_, m: Message):
     reply_text = m.reply_to_message.reply_text if m.reply_to_message else m.reply_text
     await reply_text(choice(fun_strings.DECIDE))
     return
 
 
-@Alita.on_message(command("react"))
+@Ineruki.on_message(command("react"))
 async def fun_table(_, m: Message):
     reply_text = m.reply_to_message.reply_text if m.reply_to_message else m.reply_text
     await reply_text(choice(fun_strings.REACTIONS))

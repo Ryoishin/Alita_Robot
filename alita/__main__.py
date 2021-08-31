@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -19,7 +19,7 @@
 from time import time
 
 from alita import LOGGER
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.antispam_db import __pre_req_antispam_users
 from alita.database.approve_db import __pre_req_approve
 from alita.database.blacklist_db import __pre_req_blacklists
@@ -58,4 +58,4 @@ def pre_req_all():
 
 if __name__ == "__main__":
     pre_req_all()
-    Alita().run()
+    Ineruki().run()

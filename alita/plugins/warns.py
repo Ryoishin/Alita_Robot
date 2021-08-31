@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -29,7 +29,7 @@ from pyrogram.types import (
 )
 
 from alita import LOGGER, SUPPORT_STAFF
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.rules_db import Rules
 from alita.database.users_db import Users
 from alita.database.warns_db import Warns, WarnSettings
@@ -40,10 +40,10 @@ from alita.utils.extract_user import extract_user
 from alita.utils.parser import mention_html
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["warn", "swarn", "dwarn"]) & restrict_filter,
 )
-async def warn(c: Alita, m: Message):
+async def warn(c: Ineruki, m: Message):
     from alita import BOT_ID, BOT_USERNAME
 
     if m.reply_to_message:
@@ -154,8 +154,8 @@ async def warn(c: Alita, m: Message):
     await m.stop_propagation()
 
 
-@Alita.on_message(command("resetwarns") & restrict_filter)
-async def reset_warn(c: Alita, m: Message):
+@Ineruki.on_message(command("resetwarns") & restrict_filter)
+async def reset_warn(c: Ineruki, m: Message):
     from alita import BOT_ID
 
     if not len(m.command) > 1 and not m.reply_to_message:
@@ -194,8 +194,8 @@ async def reset_warn(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("warns") & filters.group)
-async def list_warns(c: Alita, m: Message):
+@Ineruki.on_message(command("warns") & filters.group)
+async def list_warns(c: Ineruki, m: Message):
     from alita import BOT_ID
 
     user_id, user_first_name, _ = await extract_user(c, m)
@@ -235,10 +235,10 @@ async def list_warns(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["rmwarn", "removewarn"]) & restrict_filter,
 )
-async def remove_warn(c: Alita, m: Message):
+async def remove_warn(c: Ineruki, m: Message):
     from alita import BOT_ID
 
     if not len(m.command) > 1 and not m.reply_to_message:
@@ -287,8 +287,8 @@ async def remove_warn(c: Alita, m: Message):
     return
 
 
-@Alita.on_callback_query(filters.regex("^warn."))
-async def remove_last_warn_btn(c: Alita, q: CallbackQuery):
+@Ineruki.on_callback_query(filters.regex("^warn."))
+async def remove_last_warn_btn(c: Ineruki, q: CallbackQuery):
 
     try:
         admins_group = {i[0] for i in ADMIN_CACHE[q.message.chat.id]}
@@ -336,7 +336,7 @@ async def remove_last_warn_btn(c: Alita, q: CallbackQuery):
     return
 
 
-@Alita.on_message(command(["warnings", "warnsettings"]) & admin_filter)
+@Ineruki.on_message(command(["warnings", "warnsettings"]) & admin_filter)
 async def get_settings(_, m: Message):
     warn_settings_db = WarnSettings(m.chat.id)
     settings = warn_settings_db.get_warnings_settings()
@@ -350,7 +350,7 @@ async def get_settings(_, m: Message):
     return
 
 
-@Alita.on_message(command("warnmode") & admin_filter)
+@Ineruki.on_message(command("warnmode") & admin_filter)
 async def warnmode(_, m: Message):
     warn_settings_db = WarnSettings(m.chat.id)
     if len(m.text.split()) > 1:
@@ -371,7 +371,7 @@ async def warnmode(_, m: Message):
     return
 
 
-@Alita.on_message(command("warnlimit") & admin_filter)
+@Ineruki.on_message(command("warnlimit") & admin_filter)
 async def warnlimit(_, m: Message):
     warn_settings_db = WarnSettings(m.chat.id)
     if len(m.text.split()) > 1:

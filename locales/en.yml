@@ -114,7 +114,7 @@ strings:
       help: |-
         Formatting
 
-        Alita supports a large number of formatting options to make your messages more expressive. Take a look by clicking the buttons below!
+        Ineruki supports a large number of formatting options to make your messages more expressive. Take a look by clicking the buttons below!
     fun:
       main: "Fun"
       help: |-
@@ -375,7 +375,7 @@ strings:
       %%%
       how are you</code>
       This will randomly choose between sending the first message, "hello", or the second message, "how are you".
-      Use this to make Alita feel a bit more customised! (only works in filters/notes)
+      Use this to make Ineruki feel a bit more customised! (only works in filters/notes)
 
       Example welcome message::
       - Every time a new user joins, they'll be presented with one of the three messages shown here.
@@ -490,7 +490,7 @@ strings:
     check_help: "Please check help on how to use this this command."
     close_btn: Close
     commands_available: |-
-      Hey There! My name is Alita.
+      Hey There! My name is Ineruki.
       I'm here to help you manage your groups!
       Commands available:
        × /start: Start the bot
@@ -580,7 +580,7 @@ strings:
     commands_btn: Commands & Help
     group: "I'm alive :3"
     info_page: |-
-      • @Alita_Robot
+      • @Ineruki_Robot
 
       <b>Version:</b> <i>{version}</i>
 
@@ -590,11 +590,11 @@ strings:
     language_btn: Language
     pm_for_help: "Contact me in PM to get the list of possible commands."
     private: |-
-      Hey there! My name is Alita ✨.
+      Hey there! My name is Ineruki ✨.
       I'm here to help you manage your groups!
       Hit /help to find out more about how to use me to my full potential.
 
-      Join my [News Channel](http://t.me/AlitaRobotUpdates) to get information on all the latest updates.
+      Join my [News Channel](http://t.me/InerukiRobotUpdates) to get information on all the latest updates.
     public_help: "Press the button below to get help for <i>{help_option}</i>"
     source_code: "Source Code"
   utils:

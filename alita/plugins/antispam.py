@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -23,7 +23,7 @@ from pyrogram.types import Message
 from traceback import format_exc
 
 from alita import BOT_ID, LOGGER, MESSAGE_DUMP, SUPPORT_GROUP, SUPPORT_STAFF
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.antispam_db import GBan
 from alita.database.users_db import Users
 from alita.tr_engine import tlang
@@ -36,8 +36,8 @@ from alita.utils.parser import mention_html
 db = GBan()
 
 
-@Alita.on_message(command(["gban", "globalban"], sudo_cmd=True))
-async def gban(c: Alita, m: Message):
+@Ineruki.on_message(command(["gban", "globalban"], sudo_cmd=True))
+async def gban(c: Ineruki, m: Message):
     if len(m.text.split()) == 1:
         await m.reply_text(tlang(m, "antispam.gban.how_to"))
         return
@@ -106,10 +106,10 @@ async def gban(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["ungban", "unglobalban", "globalunban"], sudo_cmd=True),
 )
-async def ungban(c: Alita, m: Message):
+async def ungban(c: Ineruki, m: Message):
     if len(m.text.split()) == 1:
         await m.reply_text(tlang(m, "antispam.pass_user_id"))
         return
@@ -155,7 +155,7 @@ async def ungban(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["numgbans", "countgbans", "gbancount", "gbanscount"], sudo_cmd=True),
 )
 async def gban_count(_, m: Message):
@@ -166,7 +166,7 @@ async def gban_count(_, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["gbanlist", "globalbanlist"], sudo_cmd=True),
 )
 async def gban_list(_, m: Message):

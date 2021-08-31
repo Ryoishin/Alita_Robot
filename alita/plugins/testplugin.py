@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -19,11 +19,11 @@
 from pyrogram.types import Message
 from time import time
 
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.utils.custom_filters import command
 
 
-@Alita.on_message(command("test", sudo_cmd=True))
+@Ineruki.on_message(command("test", sudo_cmd=True))
 async def test_bot(_, m: Message):
     start = time()
     replymsg = await m.reply_text("Calculating...")

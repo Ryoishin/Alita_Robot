@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -38,7 +38,7 @@ from alita import (
     SUPPORT_STAFF,
     WHITELIST_USERS,
 )
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.antispam_db import GBan
 from alita.database.users_db import Users
 from alita.tr_engine import tlang
@@ -52,7 +52,7 @@ from alita.utils.paste import paste
 gban_db = GBan()
 
 
-@Alita.on_message(command("wiki"))
+@Ineruki.on_message(command("wiki"))
 async def wiki(_, m: Message):
     LOGGER.info(f"{m.from_user.id} used wiki cmd in {m.chat.id}")
     if m.reply_to_message:
@@ -88,7 +88,7 @@ async def wiki(_, m: Message):
     return
 
 
-@Alita.on_message(command("gdpr"))
+@Ineruki.on_message(command("gdpr"))
 async def gdpr_remove(_, m: Message):
     if m.from_user.id in SUPPORT_STAFF:
         await m.reply_text(
@@ -99,7 +99,7 @@ async def gdpr_remove(_, m: Message):
     Users(m.from_user.id).delete_user()
     await m.reply_text(
         "Your personal data has been deleted.\n"
-        "Note that this will not unban you from any chats, as that is telegram data, not Alita data."
+        "Note that this will not unban you from any chats, as that is telegram data, not Ineruki data."
         " Flooding, warns, and gbans are also preserved, as of "
         "[this](https://ico.org.uk/for-organisations/guide-to-the-general-data-protection-regulation-gdpr/individual-rights/right-to-erasure/),"
         " which clearly states that the right to erasure does not apply 'for the performance of a task carried out in the public interest', "
@@ -109,7 +109,7 @@ async def gdpr_remove(_, m: Message):
     await m.stop_propagation()
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("lyrics") & (filters.group | filters.private),
 )
 async def get_lyrics(_, m: Message):
@@ -147,10 +147,10 @@ async def get_lyrics(_, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("id") & (filters.group | filters.private),
 )
-async def id_info(c: Alita, m: Message):
+async def id_info(c: Ineruki, m: Message):
     LOGGER.info(f"{m.from_user.id} used id cmd in {m.chat.id}")
 
     if m.chat.type == "supergroup" and not m.reply_to_message:
@@ -201,7 +201,7 @@ async def id_info(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("gifid") & (filters.group | filters.private),
 )
 async def get_gifid(_, m: Message):
@@ -216,7 +216,7 @@ async def get_gifid(_, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("github") & (filters.group | filters.private),
 )
 async def github(_, m: Message):
@@ -256,10 +256,10 @@ async def github(_, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("info") & (filters.group | filters.private),
 )
-async def my_info(c: Alita, m: Message):
+async def my_info(c: Ineruki, m: Message):
     try:
         user_id, name, user_name = await extract_user(c, m)
     except PeerIdInvalid:
@@ -330,7 +330,7 @@ async def my_info(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("weebify"))
+@Ineruki.on_message(command("weebify"))
 async def weebify(_, m: Message):
     if len(m.text.split()) >= 2:
         args = m.text.split(None, 1)[1]
@@ -364,7 +364,7 @@ async def weebify(_, m: Message):
     return
 
 
-@Alita.on_message(command("paste"))
+@Ineruki.on_message(command("paste"))
 async def paste_it(_, m: Message):
     replymsg = await m.reply_text((tlang(m, "utils.paste.pasting")), quote=True)
     try:
@@ -392,7 +392,7 @@ async def paste_it(_, m: Message):
     return
 
 
-@Alita.on_message(command("tr"))
+@Ineruki.on_message(command("tr"))
 async def translate(_, m: Message):
     trl = Translator()
     if m.reply_to_message and (m.reply_to_message.text or m.reply_to_message.caption):

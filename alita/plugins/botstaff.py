@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -20,13 +20,13 @@ from pyrogram.errors import RPCError
 from pyrogram.types import Message
 
 from alita import DEV_USERS, LOGGER, OWNER_ID, SUDO_USERS, WHITELIST_USERS
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.utils.custom_filters import command
 from alita.utils.parser import mention_html
 
 
-@Alita.on_message(command("botstaff", dev_cmd=True))
-async def botstaff(c: Alita, m: Message):
+@Ineruki.on_message(command("botstaff", dev_cmd=True))
+async def botstaff(c: Ineruki, m: Message):
     try:
         owner = await c.get_users(OWNER_ID)
         reply = f"<b>🌟 Owner:</b> {(await mention_html(owner.first_name, OWNER_ID))} (<code>{OWNER_ID}</code>)\n"

@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "alita_robot"
 version = "0.2.0"
-description = "Alita is a Telegram Group management bot made using Pyrogram and Python, which makes it modern and faster than most of the Telegram chat managers."
+description = "Ineruki is a Telegram Group management bot made using Pyrogram and Python, which makes it modern and faster than most of the Telegram chat managers."
 authors = ["Divkix <techdroidroot@gmail.com>"]
 license = "AGPL-3.0"
 

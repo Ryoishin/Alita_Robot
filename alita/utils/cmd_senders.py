@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -16,11 +16,11 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.utils.msg_types import Types
 
 
-async def send_cmd(client: Alita, msgtype: int):
+async def send_cmd(client: Ineruki, msgtype: int):
     GET_FORMAT = {
         Types.TEXT.value: client.send_message,
         Types.DOCUMENT.value: client.send_document,

@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -21,13 +21,13 @@ from pyrogram.errors import ChatAdminRequired, RPCError
 from pyrogram.types import ChatPermissions, Message
 
 from alita import LOGGER
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.approve_db import Approve
 from alita.tr_engine import tlang
 from alita.utils.custom_filters import admin_filter, command, restrict_filter
 
 
-@Alita.on_message(command("locktypes") & admin_filter)
+@Ineruki.on_message(command("locktypes") & admin_filter)
 async def lock_types(_, m: Message):
     await m.reply_text(
         (
@@ -49,8 +49,8 @@ async def lock_types(_, m: Message):
     return
 
 
-@Alita.on_message(command("lock") & restrict_filter)
-async def lock_perm(c: Alita, m: Message):
+@Ineruki.on_message(command("lock") & restrict_filter)
+async def lock_perm(c: Ineruki, m: Message):
     msg = ""
     media = ""
     stickers = ""
@@ -173,7 +173,7 @@ async def lock_perm(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("locks") & restrict_filter)
+@Ineruki.on_message(command("locks") & restrict_filter)
 async def view_locks(_, m: Message):
     (
         v_perm,
@@ -235,8 +235,8 @@ async def view_locks(_, m: Message):
     return
 
 
-@Alita.on_message(command("unlock") & restrict_filter)
-async def unlock_perm(c: Alita, m: Message):
+@Ineruki.on_message(command("unlock") & restrict_filter)
+async def unlock_perm(c: Ineruki, m: Message):
     (
         umsg,
         umedia,

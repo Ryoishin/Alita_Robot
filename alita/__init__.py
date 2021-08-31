@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -38,7 +38,7 @@ file_handler = FileHandler(filename=LOGFILE)
 stdout_handler = StreamHandler(stdout)
 
 basicConfig(
-    format="%(asctime)s - [Alita_Robot] - %(levelname)s - %(message)s",
+    format="%(asctime)s - [Ineruki_Robot] - %(levelname)s - %(message)s",
     level=INFO,
     handlers=[file_handler, stdout_handler],
 )
@@ -68,11 +68,11 @@ except Exception as ef:
     sysexit(1)
 
 LOGGER.info("------------------------")
-LOGGER.info("|      Alita_Robot     |")
+LOGGER.info("|      Ineruki_Robot     |")
 LOGGER.info("------------------------")
 LOGGER.info(f"Version: {Config.VERSION}")
 LOGGER.info(f"Owner: {str(Config.OWNER_ID)}")
-LOGGER.info("Source Code: https://github.com/DivideProjects/Alita_Robot\n")
+LOGGER.info("Source Code: https://github.com/DivideProjects/Ineruki_Robot\n")
 
 # Account Related
 BOT_TOKEN = Config.BOT_TOKEN

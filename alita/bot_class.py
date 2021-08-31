@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -57,14 +57,14 @@ if MESSAGE_DUMP == -100 or not str(MESSAGE_DUMP).startswith("-100"):
     )
 
 
-class Alita(Client):
+class Ineruki(Client):
     """Starts the Pyrogram Client on the Bot Token when we do 'python3 -m alita'"""
 
     def __init__(self):
         name = self.__class__.__name__.lower()
 
         super().__init__(
-            "Alita_Robot",
+            "Ineruki_Robot",
             bot_token=BOT_TOKEN,
             plugins=dict(root=f"{name}.plugins", exclude=NO_LOAD),
             api_id=APP_ID,

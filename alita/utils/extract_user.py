@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -21,11 +21,11 @@ from traceback import format_exc
 from typing import Tuple
 
 from alita import LOGGER
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.users_db import Users
 
 
-async def extract_user(c: Alita, m: Message) -> Tuple[int, str, str]:
+async def extract_user(c: Ineruki, m: Message) -> Tuple[int, str, str]:
     """Extract the user from the provided message."""
     user_id = None
     user_first_name = None

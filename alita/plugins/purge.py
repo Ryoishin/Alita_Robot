@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -21,13 +21,13 @@ from pyrogram.errors import MessageDeleteForbidden, RPCError
 from pyrogram.types import Message
 
 from alita import SUPPORT_GROUP
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.tr_engine import tlang
 from alita.utils.custom_filters import admin_filter, command
 
 
-@Alita.on_message(command("purge") & admin_filter)
-async def purge(c: Alita, m: Message):
+@Ineruki.on_message(command("purge") & admin_filter)
+async def purge(c: Ineruki, m: Message):
     if m.chat.type != "supergroup":
         await m.reply_text(tlang(m, "purge.err_basic"))
         return
@@ -75,11 +75,11 @@ async def purge(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("del") & admin_filter,
     group=9,
 )
-async def del_msg(c: Alita, m: Message):
+async def del_msg(c: Ineruki, m: Message):
     if m.chat.type != "supergroup":
         return
 

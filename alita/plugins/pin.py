@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -23,14 +23,14 @@ from pyrogram.types import CallbackQuery, Message
 from pyromod.helpers import ikb
 
 from alita import LOGGER, SUPPORT_GROUP
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.pins_db import Pins
 from alita.tr_engine import tlang
 from alita.utils.custom_filters import admin_filter, command
 from alita.utils.string import build_keyboard, parse_button
 
 
-@Alita.on_message(command("pin") & admin_filter)
+@Ineruki.on_message(command("pin") & admin_filter)
 async def pin_message(_, m: Message):
     pin_args = m.text.split(None, 1)
     if m.reply_to_message:
@@ -82,8 +82,8 @@ async def pin_message(_, m: Message):
     return
 
 
-@Alita.on_message(command("unpin") & admin_filter)
-async def unpin_message(c: Alita, m: Message):
+@Ineruki.on_message(command("unpin") & admin_filter)
+async def unpin_message(c: Ineruki, m: Message):
     try:
         if m.reply_to_message:
             await c.unpin_chat_message(m.chat.id, m.reply_to_message.message_id)
@@ -110,7 +110,7 @@ async def unpin_message(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("unpinall") & admin_filter)
+@Ineruki.on_message(command("unpinall") & admin_filter)
 async def unpinall_message(_, m: Message):
     await m.reply_text(
         "Do you really want to unpin all messages in this chat?",
@@ -119,8 +119,8 @@ async def unpinall_message(_, m: Message):
     return
 
 
-@Alita.on_callback_query(regex("^unpin_all_in_this_chat$"))
-async def unpinall_calllback(c: Alita, q: CallbackQuery):
+@Ineruki.on_callback_query(regex("^unpin_all_in_this_chat$"))
+async def unpinall_calllback(c: Ineruki, q: CallbackQuery):
     user_id = q.from_user.id
     user_status = (await q.message.chat.get_member(user_id)).status
     if user_status not in {"creator", "administrator"}:
@@ -154,7 +154,7 @@ async def unpinall_calllback(c: Alita, q: CallbackQuery):
     return
 
 
-@Alita.on_message(command("antichannelpin") & admin_filter)
+@Ineruki.on_message(command("antichannelpin") & admin_filter)
 async def anti_channel_pin(_, m: Message):
     pinsdb = Pins(m.chat.id)
 
@@ -184,8 +184,8 @@ async def anti_channel_pin(_, m: Message):
     return
 
 
-@Alita.on_message(command("pinned") & admin_filter)
-async def pinned_message(c: Alita, m: Message):
+@Ineruki.on_message(command("pinned") & admin_filter)
+async def pinned_message(c: Ineruki, m: Message):
     chat_title = m.chat.title
     chat = await c.get_chat(chat_id=m.chat.id)
     msg_id = m.reply_to_message.message_id if m.reply_to_message else m.message_id
@@ -204,7 +204,7 @@ async def pinned_message(c: Alita, m: Message):
         await m.reply_text(f"There is no pinned message in {escape_html(chat_title)}.")
 
 
-@Alita.on_message(command("cleanlinked") & admin_filter)
+@Ineruki.on_message(command("cleanlinked") & admin_filter)
 async def clean_linked(_, m: Message):
     pinsdb = Pins(m.chat.id)
 
@@ -234,7 +234,7 @@ async def clean_linked(_, m: Message):
     return
 
 
-@Alita.on_message(command("permapin") & admin_filter)
+@Ineruki.on_message(command("permapin") & admin_filter)
 async def perma_pin(_, m: Message):
     if m.reply_to_message or len(m.text.split()) > 1:
         LOGGER.info(f"{m.from_user.id} used permampin in {m.chat.id}")

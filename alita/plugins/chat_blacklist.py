@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -21,7 +21,7 @@ from pyrogram.types import Message
 from traceback import format_exc
 
 from alita import LOGGER
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.group_blacklist import GroupBlacklist
 from alita.utils.custom_filters import command
 
@@ -29,8 +29,8 @@ from alita.utils.custom_filters import command
 db = GroupBlacklist()
 
 
-@Alita.on_message(command("blchat", dev_cmd=True))
-async def blacklist_chat(c: Alita, m: Message):
+@Ineruki.on_message(command("blchat", dev_cmd=True))
+async def blacklist_chat(c: Ineruki, m: Message):
     if len(m.text.split()) >= 2:
         chat_ids = m.text.split()[1:]
         replymsg = await m.reply_text(f"Adding {len(chat_ids)} chats to blacklist")
@@ -53,10 +53,10 @@ async def blacklist_chat(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["rmblchat", "unblchat"], dev_cmd=True),
 )
-async def unblacklist_chat(c: Alita, m: Message):
+async def unblacklist_chat(c: Ineruki, m: Message):
     if len(m.text.split()) >= 2:
         chat_ids = m.text.split()[1:]
         replymsg = await m.reply_text(f"Removing {len(chat_ids)} chats from blacklist")
@@ -83,7 +83,7 @@ async def unblacklist_chat(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["blchatlist", "blchats"], dev_cmd=True),
 )
 async def list_blacklist_chats(_, m: Message):

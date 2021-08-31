@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -24,7 +24,7 @@ from re import escape as re_escape
 from secrets import choice
 from traceback import format_exc
 
-from alita.bot_class import LOGGER, Alita
+from alita.bot_class import LOGGER, Ineruki
 from alita.database.filters_db import Filters
 from alita.utils.cmd_senders import send_cmd
 from alita.utils.custom_filters import admin_filter, command, owner_filter
@@ -41,7 +41,7 @@ from alita.utils.string import (
 db = Filters()
 
 
-@Alita.on_message(command("filters") & filters.group)
+@Ineruki.on_message(command("filters") & filters.group)
 async def view_filters(_, m: Message):
     LOGGER.info(f"{m.from_user.id} checking filters in {m.chat.id}")
 
@@ -63,7 +63,7 @@ async def view_filters(_, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["addfilter", "filter"]) & admin_filter,
 )
 async def add_filter(_, m: Message):
@@ -149,7 +149,7 @@ async def add_filter(_, m: Message):
     await m.stop_propagation()
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["rmfilter", "stop", "unfilter"]) & admin_filter,
 )
 async def stop_filter(_, m: Message):
@@ -181,7 +181,7 @@ async def stop_filter(_, m: Message):
     await m.stop_propagation()
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(
         ["rmallfilters", "removeallfilters", "stopall", "stopallfilters"],
     )
@@ -202,7 +202,7 @@ async def rm_allfilters(_, m: Message):
     return
 
 
-@Alita.on_callback_query(filters.regex("^rm_allfilters$"))
+@Ineruki.on_callback_query(filters.regex("^rm_allfilters$"))
 async def rm_allfilters_callback(_, q: CallbackQuery):
     user_id = q.from_user.id
     user_status = (await q.message.chat.get_member(user_id)).status
@@ -225,7 +225,7 @@ async def rm_allfilters_callback(_, q: CallbackQuery):
     return
 
 
-async def send_filter_reply(c: Alita, m: Message, trigger: str):
+async def send_filter_reply(c: Ineruki, m: Message, trigger: str):
     """Reply with assigned filter for the trigger"""
     getfilter = db.get_filter(m.chat.id, trigger)
 
@@ -306,8 +306,8 @@ async def send_filter_reply(c: Alita, m: Message, trigger: str):
     return msgtype
 
 
-@Alita.on_message(filters.text & filters.group, group=6)
-async def filters_watcher(c: Alita, m: Message):
+@Ineruki.on_message(filters.text & filters.group, group=6)
+async def filters_watcher(c: Ineruki, m: Message):
     if not m.from_user:
         return
 

@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -24,7 +24,7 @@ from secrets import choice
 from traceback import format_exc
 
 from alita import LOGGER
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.notes_db import Notes, NotesSettings
 from alita.utils.cmd_senders import send_cmd
 from alita.utils.custom_filters import admin_filter, command, owner_filter
@@ -40,7 +40,7 @@ db = Notes()
 db_settings = NotesSettings()
 
 
-@Alita.on_message(command("save") & admin_filter)
+@Ineruki.on_message(command("save") & admin_filter)
 async def save_note(_, m: Message):
     existing_notes = {i[0] for i in db.get_all_notes(m.chat.id)}
 
@@ -79,7 +79,7 @@ async def save_note(_, m: Message):
     return
 
 
-async def get_note_func(c: Alita, m: Message, note_name, priv_notes_status):
+async def get_note_func(c: Ineruki, m: Message, note_name, priv_notes_status):
     """Get the note in normal mode, with parsing enabled."""
     reply_text = m.reply_to_message.reply_text if m.reply_to_message else m.reply_text
     reply_msg_id = m.reply_to_message.message_id if m.reply_to_message else m.message_id
@@ -207,7 +207,7 @@ async def get_note_func(c: Alita, m: Message, note_name, priv_notes_status):
     return
 
 
-async def get_raw_note(c: Alita, m: Message, note: str):
+async def get_raw_note(c: Ineruki, m: Message, note: str):
     """Get the note in raw format, so it can updated by just copy and pasting."""
     all_notes = {i[0] for i in db.get_all_notes(m.chat.id)}
 
@@ -252,8 +252,8 @@ async def get_raw_note(c: Alita, m: Message, note: str):
     return
 
 
-@Alita.on_message(filters.regex(r"^#[^\s]+") & filters.group)
-async def hash_get(c: Alita, m: Message):
+@Ineruki.on_message(filters.regex(r"^#[^\s]+") & filters.group)
+async def hash_get(c: Ineruki, m: Message):
     # If not from user, then return
     if not m.from_user:
         return
@@ -274,8 +274,8 @@ async def hash_get(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("get") & filters.group)
-async def get_note(c: Alita, m: Message):
+@Ineruki.on_message(command("get") & filters.group)
+async def get_note(c: Ineruki, m: Message):
     if len(m.text.split()) == 2:
         priv_notes_status = db_settings.get_privatenotes(m.chat.id)
         note = ((m.text.split())[1]).lower()
@@ -296,7 +296,7 @@ async def get_note(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["privnotes", "privatenotes"]) & admin_filter,
 )
 async def priv_notes(_, m: Message):
@@ -325,7 +325,7 @@ async def priv_notes(_, m: Message):
     return
 
 
-@Alita.on_message(command(["notes", "saved"]) & filters.group)
+@Ineruki.on_message(command(["notes", "saved"]) & filters.group)
 async def local_notes(_, m: Message):
     LOGGER.info(f"{m.from_user.id} listed all notes in {m.chat.id}")
     getnotes = db.get_all_notes(m.chat.id)
@@ -365,7 +365,7 @@ async def local_notes(_, m: Message):
     return
 
 
-@Alita.on_message(command("clear") & admin_filter)
+@Ineruki.on_message(command("clear") & admin_filter)
 async def clear_note(_, m: Message):
     if len(m.text.split()) <= 1:
         await m.reply_text("What do you want to clear?")
@@ -382,7 +382,7 @@ async def clear_note(_, m: Message):
     return
 
 
-@Alita.on_message(command("clearall") & owner_filter)
+@Ineruki.on_message(command("clearall") & owner_filter)
 async def clear_allnote(_, m: Message):
     all_notes = {i[0] for i in db.get_all_notes(m.chat.id)}
     if not all_notes:
@@ -398,7 +398,7 @@ async def clear_allnote(_, m: Message):
     return
 
 
-@Alita.on_callback_query(filters.regex("^clear_notes$"))
+@Ineruki.on_callback_query(filters.regex("^clear_notes$"))
 async def clearallnotes_callback(_, q: CallbackQuery):
     user_id = q.from_user.id
     user_status = (await q.message.chat.get_member(user_id)).status

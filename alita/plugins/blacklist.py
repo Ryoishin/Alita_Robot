@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -22,13 +22,13 @@ from pyrogram.types import CallbackQuery, Message
 from pyromod.helpers import ikb
 
 from alita import LOGGER
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.blacklist_db import Blacklist
 from alita.tr_engine import tlang
 from alita.utils.custom_filters import command, owner_filter, restrict_filter
 
 
-@Alita.on_message(command("blacklist") & filters.group)
+@Ineruki.on_message(command("blacklist") & filters.group)
 async def view_blacklist(_, m: Message):
     db = Blacklist(m.chat.id)
 
@@ -56,7 +56,7 @@ async def view_blacklist(_, m: Message):
     return
 
 
-@Alita.on_message(command("addblacklist") & restrict_filter)
+@Ineruki.on_message(command("addblacklist") & restrict_filter)
 async def add_blacklist(_, m: Message):
     db = Blacklist(m.chat.id)
 
@@ -90,7 +90,7 @@ async def add_blacklist(_, m: Message):
     await m.stop_propagation()
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["blwarning", "blreason", "blacklistreason"]) & restrict_filter,
 )
 async def blacklistreason(_, m: Message):
@@ -110,7 +110,7 @@ async def blacklistreason(_, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["rmblacklist", "unblacklist"]) & restrict_filter,
 )
 async def rm_blacklist(_, m: Message):
@@ -150,7 +150,7 @@ async def rm_blacklist(_, m: Message):
     await m.stop_propagation()
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["blaction", "blacklistaction", "blacklistmode"]) & restrict_filter,
 )
 async def set_bl_action(_, m: Message):
@@ -187,7 +187,7 @@ async def set_bl_action(_, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("rmallblacklist") & owner_filter,
 )
 async def rm_allblacklist(_, m: Message):
@@ -207,7 +207,7 @@ async def rm_allblacklist(_, m: Message):
     return
 
 
-@Alita.on_callback_query(filters.regex("^rm_allblacklist$"))
+@Ineruki.on_callback_query(filters.regex("^rm_allblacklist$"))
 async def rm_allbl_callback(_, q: CallbackQuery):
     user_id = q.from_user.id
     db = Blacklist(q.message.chat.id)

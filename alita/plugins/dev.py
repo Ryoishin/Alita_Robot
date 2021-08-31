@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -35,7 +35,7 @@ from time import gmtime, strftime, time
 from traceback import format_exc
 
 from alita import LOGFILE, LOGGER, MESSAGE_DUMP, PREFIX_HANDLER, UPTIME
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.chats_db import Chats
 from alita.tr_engine import tlang
 from alita.utils.clean_file import remove_markdown_and_html
@@ -45,7 +45,7 @@ from alita.utils.parser import mention_markdown
 from alita.utils.paste import paste
 
 
-@Alita.on_message(command("ping", sudo_cmd=True))
+@Ineruki.on_message(command("ping", sudo_cmd=True))
 async def ping(_, m: Message):
     LOGGER.info(f"{m.from_user.id} used ping cmd in {m.chat.id}")
     start = time()
@@ -55,8 +55,8 @@ async def ping(_, m: Message):
     return
 
 
-@Alita.on_message(command("logs", dev_cmd=True))
-async def send_log(c: Alita, m: Message):
+@Ineruki.on_message(command("logs", dev_cmd=True))
+async def send_log(c: Ineruki, m: Message):
     replymsg = await m.reply_text("Sending logs...!")
     await c.send_message(
         MESSAGE_DUMP,
@@ -74,8 +74,8 @@ async def send_log(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("ginfo", sudo_cmd=True))
-async def group_info(c: Alita, m: Message):
+@Ineruki.on_message(command("ginfo", sudo_cmd=True))
+async def group_info(c: Ineruki, m: Message):
     if len(m.text.split()) != 2:
         await m.reply_text(
             f"It works like this: <code>{PREFIX_HANDLER} chat_id</code>",
@@ -97,8 +97,8 @@ async def group_info(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("speedtest", dev_cmd=True))
-async def test_speed(c: Alita, m: Message):
+@Ineruki.on_message(command("speedtest", dev_cmd=True))
+async def test_speed(c: Ineruki, m: Message):
     await c.send_message(
         MESSAGE_DUMP,
         f"#SPEEDTEST\n\n**User:** {(await mention_markdown(m.from_user.first_name, m.from_user.id))}",
@@ -119,7 +119,7 @@ async def test_speed(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("neofetch", dev_cmd=True))
+@Ineruki.on_message(command("neofetch", dev_cmd=True))
 async def neofetch_stats(_, m: Message):
     cmd = "neofetch --stdout"
 
@@ -146,8 +146,8 @@ async def neofetch_stats(_, m: Message):
     return
 
 
-@Alita.on_message(command(["eval", "py"], dev_cmd=True))
-async def evaluate_code(c: Alita, m: Message):
+@Ineruki.on_message(command(["eval", "py"], dev_cmd=True))
+async def evaluate_code(c: Ineruki, m: Message):
     if len(m.text.split()) == 1:
         await m.reply_text(tlang(m, "dev.execute_cmd_err"))
         return
@@ -208,7 +208,7 @@ async def aexec(code, c, m):
     return await locals()["__aexec"](c, m)
 
 
-@Alita.on_message(command(["exec", "sh"], dev_cmd=True))
+@Ineruki.on_message(command(["exec", "sh"], dev_cmd=True))
 async def execution(_, m: Message):
     if len(m.text.split()) == 1:
         await m.reply_text(tlang(m, "dev.execute_cmd_err"))
@@ -253,8 +253,8 @@ async def execution(_, m: Message):
     return
 
 
-@Alita.on_message(command("ip", dev_cmd=True))
-async def public_ip(c: Alita, m: Message):
+@Ineruki.on_message(command("ip", dev_cmd=True))
+async def public_ip(c: Ineruki, m: Message):
     ip = await HTTPx.get("https://api.ipify.org")
     await c.send_message(
         MESSAGE_DUMP,
@@ -267,8 +267,8 @@ async def public_ip(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("chatlist", dev_cmd=True))
-async def chats(c: Alita, m: Message):
+@Ineruki.on_message(command("chatlist", dev_cmd=True))
+async def chats(c: Ineruki, m: Message):
     exmsg = await m.reply_text(tlang(m, "dev.chatlist.exporting"))
     await c.send_message(
         MESSAGE_DUMP,
@@ -311,15 +311,15 @@ async def chats(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("uptime", dev_cmd=True))
+@Ineruki.on_message(command("uptime", dev_cmd=True))
 async def uptime(_, m: Message):
     up = strftime("%Hh %Mm %Ss", gmtime(time() - UPTIME))
     await m.reply_text((tlang(m, "dev.uptime")).format(uptime=up), quote=True)
     return
 
 
-@Alita.on_message(command("leavechat", dev_cmd=True))
-async def leave_chat(c: Alita, m: Message):
+@Ineruki.on_message(command("leavechat", dev_cmd=True))
+async def leave_chat(c: Ineruki, m: Message):
     if len(m.text.split()) != 2:
         await m.reply_text("Supply a chat id which I should leave!", quoet=True)
         return
@@ -339,8 +339,8 @@ async def leave_chat(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("chatbroadcast", dev_cmd=True))
-async def chat_broadcast(c: Alita, m: Message):
+@Ineruki.on_message(command("chatbroadcast", dev_cmd=True))
+async def chat_broadcast(c: Ineruki, m: Message):
     if m.reply_to_message:
         msg = m.reply_to_message.text.markdown
     else:

@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -23,7 +23,7 @@ from secrets import choice
 from traceback import format_exc
 
 from alita import HELP_COMMANDS, LOGGER, SUPPORT_GROUP
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.chats_db import Chats
 from alita.database.notes_db import Notes
 from alita.database.rules_db import Rules
@@ -74,7 +74,7 @@ async def gen_start_kb(q: Message or CallbackQuery):
                 (f"🌐 {(tlang(q, 'start.language_btn'))}", "chlang"),
                 (
                     f"🗃️ {(tlang(q, 'start.source_code'))}",
-                    "https://github.com/DivideProjects/Alita_Robot",
+                    "https://github.com/DivideProjects/Ineruki_Robot",
                     "url",
                 ),
             ],
@@ -82,7 +82,7 @@ async def gen_start_kb(q: Message or CallbackQuery):
     )
 
 
-async def get_private_note(c: Alita, m: Message, help_option: str):
+async def get_private_note(c: Ineruki, m: Message, help_option: str):
     """Get the note in pm of user, with parsing enabled."""
     from alita import BOT_USERNAME
 

@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -24,7 +24,7 @@ from time import time
 from traceback import format_exc
 
 from alita import LOGGER, MESSAGE_DUMP, SUPPORT_STAFF
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.antispam_db import ANTISPAM_BANNED, GBan
 from alita.database.approve_db import Approve
 from alita.database.blacklist_db import Blacklist
@@ -40,8 +40,8 @@ from alita.utils.regex_utils import regex_searcher
 gban_db = GBan()
 
 
-@Alita.on_message(filters.linked_channel)
-async def antichanpin_cleanlinked(c: Alita, m: Message):
+@Ineruki.on_message(filters.linked_channel)
+async def antichanpin_cleanlinked(c: Ineruki, m: Message):
     try:
         msg_id = m.message_id
         pins_db = Pins(m.chat.id)
@@ -65,7 +65,7 @@ async def antichanpin_cleanlinked(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(filters.text & filters.group, group=5)
+@Ineruki.on_message(filters.text & filters.group, group=5)
 async def bl_watcher(_, m: Message):
     if not m.from_user:
         return
@@ -196,8 +196,8 @@ async def bl_watcher(_, m: Message):
     return
 
 
-@Alita.on_message(filters.user(list(ANTISPAM_BANNED)) & filters.group)
-async def gban_watcher(c: Alita, m: Message):
+@Ineruki.on_message(filters.user(list(ANTISPAM_BANNED)) & filters.group)
+async def gban_watcher(c: Ineruki, m: Message):
     from alita import SUPPORT_GROUP
 
     try:
@@ -238,8 +238,8 @@ async def gban_watcher(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(filters.chat(BLACKLIST_CHATS))
-async def bl_chats_watcher(c: Alita, m: Message):
+@Ineruki.on_message(filters.chat(BLACKLIST_CHATS))
+async def bl_chats_watcher(c: Ineruki, m: Message):
     from alita import SUPPORT_GROUP
 
     await c.send_message(

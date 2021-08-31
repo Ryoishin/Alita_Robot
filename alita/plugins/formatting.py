@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -21,7 +21,7 @@ from pyrogram.types import CallbackQuery, Message
 from pyromod.helpers import ikb
 
 from alita import LOGGER
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.tr_engine import tlang
 from alita.utils.custom_filters import command
 
@@ -39,7 +39,7 @@ async def gen_formatting_kb(m):
     )
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["markdownhelp", "formatting"]) & filters.private,
 )
 async def markdownhelp(_, m: Message):
@@ -52,7 +52,7 @@ async def markdownhelp(_, m: Message):
     return
 
 
-@Alita.on_callback_query(filters.regex("^formatting."))
+@Ineruki.on_callback_query(filters.regex("^formatting."))
 async def get_formatting_info(_, q: CallbackQuery):
     cmd = q.data.split(".")[1]
     kb = ikb([[((tlang(q, "general.back_btn")), "back.formatting")]])
@@ -80,7 +80,7 @@ async def get_formatting_info(_, q: CallbackQuery):
     return
 
 
-@Alita.on_callback_query(filters.regex("^back."))
+@Ineruki.on_callback_query(filters.regex("^back."))
 async def send_mod_help(_, q: CallbackQuery):
     await q.message.edit_text(
         (tlang(q, "plugins.formatting.help")),

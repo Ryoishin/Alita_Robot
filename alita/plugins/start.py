@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -22,7 +22,7 @@ from pyrogram.types import CallbackQuery, Message
 from pyromod.helpers import ikb
 
 from alita import HELP_COMMANDS, LOGGER
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.tr_engine import tlang
 from alita.utils.custom_filters import command
 from alita.utils.start_utils import (
@@ -34,7 +34,7 @@ from alita.utils.start_utils import (
 )
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("donate") & (filters.group | filters.private),
 )
 async def donate(_, m: Message):
@@ -43,7 +43,7 @@ async def donate(_, m: Message):
     return
 
 
-@Alita.on_callback_query(filters.regex("^close_admin$"))
+@Ineruki.on_callback_query(filters.regex("^close_admin$"))
 async def close_admin_callback(_, q: CallbackQuery):
     user_id = q.from_user.id
     user_status = (await q.message.chat.get_member(user_id)).status
@@ -64,10 +64,10 @@ async def close_admin_callback(_, q: CallbackQuery):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("start") & (filters.group | filters.private),
 )
-async def start(c: Alita, m: Message):
+async def start(c: Ineruki, m: Message):
     if m.chat.type == "private":
         if len(m.text.split()) > 1:
             help_option = (m.text.split(None, 1)[1]).lower()
@@ -112,7 +112,7 @@ async def start(c: Alita, m: Message):
     return
 
 
-@Alita.on_callback_query(filters.regex("^start_back$"))
+@Ineruki.on_callback_query(filters.regex("^start_back$"))
 async def start_back(_, q: CallbackQuery):
     try:
         await q.message.edit_text(
@@ -126,7 +126,7 @@ async def start_back(_, q: CallbackQuery):
     return
 
 
-@Alita.on_callback_query(filters.regex("^commands$"))
+@Ineruki.on_callback_query(filters.regex("^commands$"))
 async def commands_menu(_, q: CallbackQuery):
     keyboard = ikb(
         [
@@ -150,7 +150,7 @@ async def commands_menu(_, q: CallbackQuery):
     return
 
 
-@Alita.on_message(command("help"))
+@Ineruki.on_message(command("help"))
 async def help_menu(_, m: Message):
     from alita import BOT_USERNAME
 
@@ -201,7 +201,7 @@ async def help_menu(_, m: Message):
     return
 
 
-@Alita.on_callback_query(filters.regex("^get_mod."))
+@Ineruki.on_callback_query(filters.regex("^get_mod."))
 async def get_module_info(_, q: CallbackQuery):
     module = q.data.split(".", 1)[1]
 

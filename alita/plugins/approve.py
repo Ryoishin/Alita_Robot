@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -22,17 +22,17 @@ from pyrogram.types import CallbackQuery, ChatPermissions, Message
 from pyromod.helpers import ikb
 
 from alita import LOGGER, SUPPORT_GROUP
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.approve_db import Approve
 from alita.utils.custom_filters import admin_filter, command, owner_filter
 from alita.utils.extract_user import extract_user
 from alita.utils.parser import mention_html
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("approve") & admin_filter,
 )
-async def approve_user(c: Alita, m: Message):
+async def approve_user(c: Ineruki, m: Message):
     db = Approve(m.chat.id)
 
     chat_title = m.chat.title
@@ -94,10 +94,10 @@ async def approve_user(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command(["disapprove", "unapprove"]) & admin_filter,
 )
-async def disapprove_user(c: Alita, m: Message):
+async def disapprove_user(c: Ineruki, m: Message):
     db = Approve(m.chat.id)
 
     chat_title = m.chat.title
@@ -147,7 +147,7 @@ async def disapprove_user(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(command("approved") & admin_filter)
+@Ineruki.on_message(command("approved") & admin_filter)
 async def check_approved(_, m: Message):
     db = Approve(m.chat.id)
 
@@ -174,8 +174,8 @@ async def check_approved(_, m: Message):
     return
 
 
-@Alita.on_message(command("approval") & filters.group)
-async def check_approval(c: Alita, m: Message):
+@Ineruki.on_message(command("approval") & filters.group)
+async def check_approval(c: Ineruki, m: Message):
     db = Approve(m.chat.id)
 
     user_id, user_first_name, _ = await extract_user(c, m)
@@ -198,7 +198,7 @@ async def check_approval(c: Alita, m: Message):
     return
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("unapproveall") & filters.group & owner_filter,
 )
 async def unapproveall_users(_, m: Message):
@@ -218,7 +218,7 @@ async def unapproveall_users(_, m: Message):
     return
 
 
-@Alita.on_callback_query(filters.regex("^unapprove_all$"))
+@Ineruki.on_callback_query(filters.regex("^unapprove_all$"))
 async def unapproveall_callback(_, q: CallbackQuery):
     user_id = q.from_user.id
     db = Approve(q.message.chat.id)

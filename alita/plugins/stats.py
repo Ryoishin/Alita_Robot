@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -18,7 +18,7 @@
 
 from pyrogram.types import Message
 
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database import MongoDB
 from alita.database.antispam_db import GBan
 from alita.database.approve_db import Approve
@@ -33,7 +33,7 @@ from alita.database.warns_db import Warns, WarnSettings
 from alita.utils.custom_filters import command
 
 
-@Alita.on_message(command("stats", dev_cmd=True))
+@Ineruki.on_message(command("stats", dev_cmd=True))
 async def get_stats(_, m: Message):
     # initialise
     bldb = Blacklist
@@ -79,7 +79,7 @@ async def get_stats(_, m: Message):
     return
 
 
-@Alita.on_message(command("dbstats", dev_cmd=True))
+@Ineruki.on_message(command("dbstats", dev_cmd=True))
 async def get_dbstats(_, m: Message):
     db_stats = (
         f"<b>Database Stats:</b>\n<code>{MongoDB('test').db_command('dbstats')}</code>"

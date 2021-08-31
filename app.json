@@ -1,6 +1,6 @@
 {
-   "name": "Alita_Robot",
-   "description": "Alita is a Telegram Group management bot made using Pyrogram and Python, which makes it modern and faster than most of the Telegram chat managers.",
+   "name": "Ineruki_Robot",
+   "description": "Ineruki is a Telegram Group management bot made using Pyrogram and Python, which makes it modern and faster than most of the Telegram chat managers.",
    "keywords": [
       "telegram bot",
       "group bot",
@@ -9,7 +9,7 @@
       "alita",
       "alita_robot"
    ],
-   "repository": "https://github.com/DivideProjects/Alita_Robot",
+   "repository": "https://github.com/DivideProjects/Ineruki_Robot",
    "website": "https://t.me/DivideProjects",
    "success_url": "https://t.me/DivideProjects",
    "env": {
@@ -70,7 +70,7 @@
       },
       "SUPPORT_CHANNEL": {
          "description": "Channel where bot uodates will be posted!",
-         "value": "AlitaUpdates"
+         "value": "InerukiUpdates"
       },
       "SUDO_USERS": {
          "description": "A space separated list of user IDs who you want to assign as sudo users.",

@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -24,13 +24,13 @@ from time import time
 from traceback import format_exc
 
 from alita import LOGGER, SUPPORT_STAFF
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.reporting_db import Reporting
 from alita.utils.custom_filters import admin_filter, command
 from alita.utils.parser import mention_html
 
 
-@Alita.on_message(
+@Ineruki.on_message(
     command("reports") & (filters.private | admin_filter),
 )
 async def report_setting(_, m: Message):
@@ -79,8 +79,8 @@ async def report_setting(_, m: Message):
         )
 
 
-@Alita.on_message(command("report") & filters.group)
-async def report_watcher(c: Alita, m: Message):
+@Ineruki.on_message(command("report") & filters.group)
+async def report_watcher(c: Ineruki, m: Message):
     if m.chat.type != "supergroup":
         return
 
@@ -177,8 +177,8 @@ async def report_watcher(c: Alita, m: Message):
     return ""
 
 
-@Alita.on_callback_query(filters.regex("^report_"))
-async def report_buttons(c: Alita, q: CallbackQuery):
+@Ineruki.on_callback_query(filters.regex("^report_"))
+async def report_buttons(c: Ineruki, q: CallbackQuery):
     splitter = (str(q.data).replace("report_", "")).split("=")
     chat_id = int(splitter[0])
     action = str(splitter[1])

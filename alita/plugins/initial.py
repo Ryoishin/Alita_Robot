@@ -1,6 +1,6 @@
 # Copyright (C) 2020 - 2021 Divkix. All rights reserved. Source code available under the AGPL.
 #
-# This file is part of Alita_Robot.
+# This file is part of Ineruki_Robot.
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -21,7 +21,7 @@ from pyrogram.errors import RPCError
 from pyrogram.types import Message
 
 from alita import LOGGER
-from alita.bot_class import Alita
+from alita.bot_class import Ineruki
 from alita.database.approve_db import Approve
 from alita.database.blacklist_db import Blacklist
 from alita.database.chats_db import Chats
@@ -34,7 +34,7 @@ from alita.database.rules_db import Rules
 from alita.database.users_db import Users
 
 
-@Alita.on_message(filters.group, group=4)
+@Ineruki.on_message(filters.group, group=4)
 async def initial_works(_, m: Message):
     chatdb = Chats(m.chat.id)
     try:
