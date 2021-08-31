@@ -20,11 +20,11 @@ from pyrogram import filters
 from pyrogram.types import CallbackQuery, Message
 from pyromod.helpers import ikb
 
-from alita import LOGGER
-from alita.bot_class import Ineruki
-from alita.database.rules_db import Rules
-from alita.tr_engine import tlang
-from alita.utils.custom_filters import admin_filter, command
+from ineruki import LOGGER
+from ineruki.bot_class import Ineruki
+from ineruki.database.rules_db import Rules
+from ineruki.tr_engine import tlang
+from ineruki.utils.custom_filters import admin_filter, command
 
 
 @Ineruki.on_message(command("rules") & filters.group)
@@ -45,7 +45,7 @@ async def get_rules(_, m: Message):
     priv_rules_status = db.get_privrules()
 
     if priv_rules_status:
-        from alita import BOT_USERNAME
+        from ineruki import BOT_USERNAME
 
         pm_kb = ikb(
             [

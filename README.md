@@ -44,7 +44,7 @@ More languages can be managed in the _locales_ folder.
 
 We are still working on adding new languages.
 
-Help us bring more languages to the bot by contributing to the project on [Crowdin](https://crowdin.com/project/alitarobot)
+Help us bring more languages to the bot by contributing to the project on [Crowdin](https://crowdin.com/project/inerukirobot)
 
 ## Requirements
 - You need to have a *Mongo Database* (Cluster Preferred)
@@ -74,7 +74,7 @@ It really motivates me to continue this project further.
 - Install the requirements using `poetry install`
 - Fill in all the variables in *Development* class, not *Config* class. **Sudo, Dev, Whitelist** users are optional!!
 - Change to poetry shell by using: `poetry shell`
-- Run the bot using `python3 -m alita`
+- Run the bot using `python3 -m ineruki`
 
 **Note:** The traditional method currently only works on Linux OSes as a requirement [uvloop](https://pypi.org/project/uvloop/) requires linux API method which isn't provided by Windows!
 
@@ -83,8 +83,8 @@ It really motivates me to continue this project further.
 - Clone the repo and enter into it
 - Install [Docker](https://www.docker.com/)
 - Fill in the `sample.env` file and rename it to `main.env`.
-- Build the docker image using: `docker build -t alita_robot:latest .` (The dot '.' at last is necessary!)
-- Run the command `docker run --env-file main.env alita_robot`
+- Build the docker image using: `docker build -t ineruki_robot:latest .` (The dot '.' at last is necessary!)
+- Run the command `docker run --env-file main.env ineruki_robot`
 
 
 If all works well, bot should send message to the **MESSAGE_DUMP** Group!

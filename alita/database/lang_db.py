@@ -19,8 +19,8 @@
 from threading import RLock
 from time import time
 
-from alita import LOGGER
-from alita.database import MongoDB
+from ineruki import LOGGER
+from ineruki.database import MongoDB
 
 INSERTION_LOCK = RLock()
 

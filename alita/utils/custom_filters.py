@@ -23,9 +23,9 @@ from re import escape, search
 from shlex import split
 from typing import List
 
-from alita import DEV_USERS, OWNER_ID, PREFIX_HANDLER, SUDO_USERS
-from alita.tr_engine import tlang
-from alita.utils.caching import ADMIN_CACHE, admin_cache_reload
+from ineruki import DEV_USERS, OWNER_ID, PREFIX_HANDLER, SUDO_USERS
+from ineruki.tr_engine import tlang
+from ineruki.utils.caching import ADMIN_CACHE, admin_cache_reload
 
 SUDO_LEVEL = set(SUDO_USERS + DEV_USERS + [int(OWNER_ID)])
 DEV_LEVEL = set(DEV_USERS + [int(OWNER_ID)])
@@ -38,7 +38,7 @@ def command(
         dev_cmd: bool = False,
         sudo_cmd: bool = False,
 ):
-    from alita import BOT_USERNAME
+    from ineruki import BOT_USERNAME
 
     async def func(flt, _, m: Message):
 

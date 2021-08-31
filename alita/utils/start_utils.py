@@ -22,15 +22,15 @@ from pyromod.helpers import ikb
 from secrets import choice
 from traceback import format_exc
 
-from alita import HELP_COMMANDS, LOGGER, SUPPORT_GROUP
-from alita.bot_class import Ineruki
-from alita.database.chats_db import Chats
-from alita.database.notes_db import Notes
-from alita.database.rules_db import Rules
-from alita.tr_engine import tlang
-from alita.utils.cmd_senders import send_cmd
-from alita.utils.msg_types import Types
-from alita.utils.string import (
+from ineruki import HELP_COMMANDS, LOGGER, SUPPORT_GROUP
+from ineruki.bot_class import Ineruki
+from ineruki.database.chats_db import Chats
+from ineruki.database.notes_db import Notes
+from ineruki.database.rules_db import Rules
+from ineruki.tr_engine import tlang
+from ineruki.utils.cmd_senders import send_cmd
+from ineruki.utils.msg_types import Types
+from ineruki.utils.string import (
     build_keyboard,
     escape_mentions_using_curly_brackets,
     parse_button,
@@ -53,7 +53,7 @@ async def gen_cmds_kb(m: Message or CallbackQuery):
 
 async def gen_start_kb(q: Message or CallbackQuery):
     """Generate keyboard with start menu options."""
-    from alita import BOT_USERNAME
+    from ineruki import BOT_USERNAME
 
     return ikb(
         [
@@ -84,7 +84,7 @@ async def gen_start_kb(q: Message or CallbackQuery):
 
 async def get_private_note(c: Ineruki, m: Message, help_option: str):
     """Get the note in pm of user, with parsing enabled."""
-    from alita import BOT_USERNAME
+    from ineruki import BOT_USERNAME
 
     help_lst = help_option.split("_")
     if len(help_lst) == 2:

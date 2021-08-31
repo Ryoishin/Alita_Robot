@@ -28,7 +28,7 @@ from tswift import Song
 from wikipedia import summary
 from wikipedia.exceptions import DisambiguationError, PageError
 
-from alita import (
+from ineruki import (
     DEV_USERS,
     LOGGER,
     OWNER_ID,
@@ -38,16 +38,16 @@ from alita import (
     SUPPORT_STAFF,
     WHITELIST_USERS,
 )
-from alita.bot_class import Ineruki
-from alita.database.antispam_db import GBan
-from alita.database.users_db import Users
-from alita.tr_engine import tlang
-from alita.utils.clean_file import remove_markdown_and_html
-from alita.utils.custom_filters import command
-from alita.utils.extract_user import extract_user
-from alita.utils.http_helper import HTTPx
-from alita.utils.parser import mention_html
-from alita.utils.paste import paste
+from ineruki.bot_class import Ineruki
+from ineruki.database.antispam_db import GBan
+from ineruki.database.users_db import Users
+from ineruki.tr_engine import tlang
+from ineruki.utils.clean_file import remove_markdown_and_html
+from ineruki.utils.custom_filters import command
+from ineruki.utils.extract_user import extract_user
+from ineruki.utils.http_helper import HTTPx
+from ineruki.utils.parser import mention_html
+from ineruki.utils.paste import paste
 
 gban_db = GBan()
 

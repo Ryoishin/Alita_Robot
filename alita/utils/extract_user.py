@@ -20,9 +20,9 @@ from pyrogram.types.messages_and_media.message import Message
 from traceback import format_exc
 from typing import Tuple
 
-from alita import LOGGER
-from alita.bot_class import Ineruki
-from alita.database.users_db import Users
+from ineruki import LOGGER
+from ineruki.bot_class import Ineruki
+from ineruki.database.users_db import Users
 
 
 async def extract_user(c: Ineruki, m: Message) -> Tuple[int, str, str]:

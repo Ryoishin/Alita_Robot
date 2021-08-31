@@ -18,19 +18,19 @@
 
 from pyrogram.types import Message
 
-from alita.bot_class import Ineruki
-from alita.database import MongoDB
-from alita.database.antispam_db import GBan
-from alita.database.approve_db import Approve
-from alita.database.blacklist_db import Blacklist
-from alita.database.chats_db import Chats
-from alita.database.filters_db import Filters
-from alita.database.notes_db import Notes, NotesSettings
-from alita.database.pins_db import Pins
-from alita.database.rules_db import Rules
-from alita.database.users_db import Users
-from alita.database.warns_db import Warns, WarnSettings
-from alita.utils.custom_filters import command
+from ineruki.bot_class import Ineruki
+from ineruki.database import MongoDB
+from ineruki.database.antispam_db import GBan
+from ineruki.database.approve_db import Approve
+from ineruki.database.blacklist_db import Blacklist
+from ineruki.database.chats_db import Chats
+from ineruki.database.filters_db import Filters
+from ineruki.database.notes_db import Notes, NotesSettings
+from ineruki.database.pins_db import Pins
+from ineruki.database.rules_db import Rules
+from ineruki.database.users_db import Users
+from ineruki.database.warns_db import Warns, WarnSettings
+from ineruki.utils.custom_filters import command
 
 
 @Ineruki.on_message(command("stats", dev_cmd=True))

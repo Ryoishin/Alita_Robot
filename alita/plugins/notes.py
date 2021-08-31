@@ -23,13 +23,13 @@ from pyromod.helpers import ikb
 from secrets import choice
 from traceback import format_exc
 
-from alita import LOGGER
-from alita.bot_class import Ineruki
-from alita.database.notes_db import Notes, NotesSettings
-from alita.utils.cmd_senders import send_cmd
-from alita.utils.custom_filters import admin_filter, command, owner_filter
-from alita.utils.msg_types import Types, get_note_type
-from alita.utils.string import (
+from ineruki import LOGGER
+from ineruki.bot_class import Ineruki
+from ineruki.database.notes_db import Notes, NotesSettings
+from ineruki.utils.cmd_senders import send_cmd
+from ineruki.utils.custom_filters import admin_filter, command, owner_filter
+from ineruki.utils.msg_types import Types, get_note_type
+from ineruki.utils.string import (
     build_keyboard,
     escape_mentions_using_curly_brackets,
     parse_button,
@@ -85,7 +85,7 @@ async def get_note_func(c: Ineruki, m: Message, note_name, priv_notes_status):
     reply_msg_id = m.reply_to_message.message_id if m.reply_to_message else m.message_id
 
     if priv_notes_status:
-        from alita import BOT_USERNAME
+        from ineruki import BOT_USERNAME
 
         note_hash = next(i[1] for i in db.get_all_notes(m.chat.id) if i[0] == note_name)
         await reply_text(
@@ -337,7 +337,7 @@ async def local_notes(_, m: Message):
 
     curr_pref = db_settings.get_privatenotes(m.chat.id)
     if curr_pref:
-        from alita import BOT_USERNAME
+        from ineruki import BOT_USERNAME
 
         pm_kb = ikb(
             [

@@ -20,10 +20,10 @@ from pyrogram.errors import PeerIdInvalid, RPCError
 from pyrogram.types import Message
 from traceback import format_exc
 
-from alita import LOGGER
-from alita.bot_class import Ineruki
-from alita.database.group_blacklist import GroupBlacklist
-from alita.utils.custom_filters import command
+from ineruki import LOGGER
+from ineruki.bot_class import Ineruki
+from ineruki.database.group_blacklist import GroupBlacklist
+from ineruki.utils.custom_filters import command
 
 # initialise database
 db = GroupBlacklist()

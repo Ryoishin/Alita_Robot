@@ -29,7 +29,7 @@ from pyrogram import Client, __version__
 from pyrogram.raw.all import layer
 from pyromod.helpers import ikb
 
-from alita import (
+from ineruki import (
     API_HASH,
     APP_ID,
     BOT_TOKEN,
@@ -43,10 +43,10 @@ from alita import (
     get_self,
     load_cmds,
 )
-from alita.database import MongoDB
-from alita.plugins import all_plugins
-from alita.tr_engine import lang_dict
-from alita.utils.paste import paste
+from ineruki.database import MongoDB
+from ineruki.plugins import all_plugins
+from ineruki.tr_engine import lang_dict
+from ineruki.utils.paste import paste
 
 INITIAL_LOCK = RLock()
 
@@ -58,7 +58,7 @@ if MESSAGE_DUMP == -100 or not str(MESSAGE_DUMP).startswith("-100"):
 
 
 class Ineruki(Client):
-    """Starts the Pyrogram Client on the Bot Token when we do 'python3 -m alita'"""
+    """Starts the Pyrogram Client on the Bot Token when we do 'python3 -m ineruki'"""
 
     def __init__(self):
         name = self.__class__.__name__.lower()

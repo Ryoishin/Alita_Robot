@@ -27,15 +27,15 @@ from pyrogram.errors import (
 from pyrogram.types import Message
 from traceback import format_exc
 
-from alita import LOGGER, SUPPORT_GROUP, SUPPORT_STAFF
-from alita.bot_class import Ineruki
-from alita.database.approve_db import Approve
-from alita.database.reporting_db import Reporting
-from alita.tr_engine import tlang
-from alita.utils.caching import ADMIN_CACHE, TEMP_ADMIN_CACHE_BLOCK, admin_cache_reload
-from alita.utils.custom_filters import DEV_LEVEL, admin_filter, command, promote_filter
-from alita.utils.extract_user import extract_user
-from alita.utils.parser import mention_html
+from ineruki import LOGGER, SUPPORT_GROUP, SUPPORT_STAFF
+from ineruki.bot_class import Ineruki
+from ineruki.database.approve_db import Approve
+from ineruki.database.reporting_db import Reporting
+from ineruki.tr_engine import tlang
+from ineruki.utils.caching import ADMIN_CACHE, TEMP_ADMIN_CACHE_BLOCK, admin_cache_reload
+from ineruki.utils.custom_filters import DEV_LEVEL, admin_filter, command, promote_filter
+from ineruki.utils.extract_user import extract_user
+from ineruki.utils.parser import mention_html
 
 
 @Ineruki.on_message(command("adminlist") & filters.group)
@@ -162,7 +162,7 @@ async def tag_admins(_, m: Message):
     command("promote") & promote_filter,
 )
 async def promote_usr(c: Ineruki, m: Message):
-    from alita import BOT_ID
+    from ineruki import BOT_ID
 
     global ADMIN_CACHE
 
@@ -267,7 +267,7 @@ async def promote_usr(c: Ineruki, m: Message):
     command("demote") & promote_filter,
 )
 async def demote_usr(c: Ineruki, m: Message):
-    from alita import BOT_ID
+    from ineruki import BOT_ID
 
     global ADMIN_CACHE
 

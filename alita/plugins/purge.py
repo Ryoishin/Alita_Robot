@@ -20,10 +20,10 @@ from asyncio import sleep
 from pyrogram.errors import MessageDeleteForbidden, RPCError
 from pyrogram.types import Message
 
-from alita import SUPPORT_GROUP
-from alita.bot_class import Ineruki
-from alita.tr_engine import tlang
-from alita.utils.custom_filters import admin_filter, command
+from ineruki import SUPPORT_GROUP
+from ineruki.bot_class import Ineruki
+from ineruki.tr_engine import tlang
+from ineruki.utils.custom_filters import admin_filter, command
 
 
 @Ineruki.on_message(command("purge") & admin_filter)

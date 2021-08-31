@@ -19,7 +19,7 @@
 from regex import search
 from traceback import format_exc
 
-from alita import LOGGER
+from ineruki import LOGGER
 
 
 async def regex_searcher(regex_string: str, string: str) -> str:

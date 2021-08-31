@@ -6,8 +6,8 @@
       "group bot",
       "group",
       "manager",
-      "alita",
-      "alita_robot"
+      "ineruki",
+      "ineruki_robot"
    ],
    "repository": "https://github.com/DivideProjects/Ineruki_Robot",
    "website": "https://t.me/DivideProjects",
@@ -36,7 +36,7 @@
       "DB_NAME": {
          "description": "Your MongoDB database name.",
          "required": true,
-         "value": "alita_robot"
+         "value": "ineruki_robot"
       },
       "OWNER_ID": {
          "description": "Your user ID as an integer.",

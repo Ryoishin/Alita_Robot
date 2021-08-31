@@ -23,7 +23,7 @@ from threading import RLock
 from time import perf_counter, time
 from typing import List
 
-from alita import LOGGER
+from ineruki import LOGGER
 
 THREAD_LOCK = RLock()
 

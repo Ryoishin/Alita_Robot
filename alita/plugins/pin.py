@@ -22,12 +22,12 @@ from pyrogram.filters import regex
 from pyrogram.types import CallbackQuery, Message
 from pyromod.helpers import ikb
 
-from alita import LOGGER, SUPPORT_GROUP
-from alita.bot_class import Ineruki
-from alita.database.pins_db import Pins
-from alita.tr_engine import tlang
-from alita.utils.custom_filters import admin_filter, command
-from alita.utils.string import build_keyboard, parse_button
+from ineruki import LOGGER, SUPPORT_GROUP
+from ineruki.bot_class import Ineruki
+from ineruki.database.pins_db import Pins
+from ineruki.tr_engine import tlang
+from ineruki.utils.custom_filters import admin_filter, command
+from ineruki.utils.string import build_keyboard, parse_button
 
 
 @Ineruki.on_message(command("pin") & admin_filter)

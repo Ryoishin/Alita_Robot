@@ -21,12 +21,12 @@ from pyrogram.errors import PeerIdInvalid, RPCError, UserNotParticipant
 from pyrogram.types import CallbackQuery, ChatPermissions, Message
 from pyromod.helpers import ikb
 
-from alita import LOGGER, SUPPORT_GROUP
-from alita.bot_class import Ineruki
-from alita.database.approve_db import Approve
-from alita.utils.custom_filters import admin_filter, command, owner_filter
-from alita.utils.extract_user import extract_user
-from alita.utils.parser import mention_html
+from ineruki import LOGGER, SUPPORT_GROUP
+from ineruki.bot_class import Ineruki
+from ineruki.database.approve_db import Approve
+from ineruki.utils.custom_filters import admin_filter, command, owner_filter
+from ineruki.utils.extract_user import extract_user
+from ineruki.utils.parser import mention_html
 
 
 @Ineruki.on_message(

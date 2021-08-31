@@ -18,17 +18,17 @@
 
 from pymongo import MongoClient
 
-from alita import DB_NAME, DB_URI, LOGGER
+from ineruki import DB_NAME, DB_URI, LOGGER
 
-alita_db_client = MongoClient(DB_URI)
-alita_main_db = alita_db_client[DB_NAME]
+ineruki_db_client = MongoClient(DB_URI)
+ineruki_main_db = ineruki_db_client[DB_NAME]
 
 
 class MongoDB:
     """Class for interacting with Bot database."""
 
     def __init__(self, collection) -> None:
-        self.collection = alita_main_db[collection]
+        self.collection = ineruki_main_db[collection]
 
     # Insert one entry into collection
     def insert_one(self, document):

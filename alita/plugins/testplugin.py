@@ -19,8 +19,8 @@
 from pyrogram.types import Message
 from time import time
 
-from alita.bot_class import Ineruki
-from alita.utils.custom_filters import command
+from ineruki.bot_class import Ineruki
+from ineruki.utils.custom_filters import command
 
 
 @Ineruki.on_message(command("test", sudo_cmd=True))

@@ -19,7 +19,7 @@
 from pyrogram.types import CallbackQuery, Message
 from traceback import format_exc
 
-from alita import DEV_USERS, LOGGER, OWNER_ID, SUDO_USERS
+from ineruki import DEV_USERS, LOGGER, OWNER_ID, SUDO_USERS
 
 SUDO_LEVEL = SUDO_USERS + DEV_USERS + [int(OWNER_ID)]
 DEV_LEVEL = DEV_USERS + [int(OWNER_ID)]

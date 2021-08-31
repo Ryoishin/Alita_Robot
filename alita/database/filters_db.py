@@ -20,9 +20,9 @@ from threading import RLock
 from time import time
 from traceback import format_exc
 
-from alita import LOGGER
-from alita.database import MongoDB
-from alita.utils.msg_types import Types
+from ineruki import LOGGER
+from ineruki.database import MongoDB
+from ineruki.utils.msg_types import Types
 
 INSERTION_LOCK = RLock()
 

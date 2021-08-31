@@ -15,5 +15,5 @@ nosetests.xml
 coverage.xml
 *.cover
 *.log
-alita/local_vars.py
+ineruki/local_vars.py
 *.logs

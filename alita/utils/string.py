@@ -22,7 +22,7 @@ from re import compile as compile_re
 from time import time
 from typing import List
 
-from alita.utils.parser import mention_html
+from ineruki.utils.parser import mention_html
 
 BTN_URL_REGEX = compile_re(r"(\[([^\[]+?)\]\(buttonurl:(?:/{0,2})(.+?)(:same)?\))")
 

@@ -19,10 +19,10 @@
 from pyrogram.errors import RPCError
 from pyrogram.types import Message
 
-from alita import DEV_USERS, LOGGER, OWNER_ID, SUDO_USERS, WHITELIST_USERS
-from alita.bot_class import Ineruki
-from alita.utils.custom_filters import command
-from alita.utils.parser import mention_html
+from ineruki import DEV_USERS, LOGGER, OWNER_ID, SUDO_USERS, WHITELIST_USERS
+from ineruki.bot_class import Ineruki
+from ineruki.utils.custom_filters import command
+from ineruki.utils.parser import mention_html
 
 
 @Ineruki.on_message(command("botstaff", dev_cmd=True))

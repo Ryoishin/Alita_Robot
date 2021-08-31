@@ -23,18 +23,18 @@ from re import escape as re_escape
 from time import time
 from traceback import format_exc
 
-from alita import LOGGER, MESSAGE_DUMP, SUPPORT_STAFF
-from alita.bot_class import Ineruki
-from alita.database.antispam_db import ANTISPAM_BANNED, GBan
-from alita.database.approve_db import Approve
-from alita.database.blacklist_db import Blacklist
-from alita.database.group_blacklist import BLACKLIST_CHATS
-from alita.database.pins_db import Pins
-from alita.database.warns_db import Warns, WarnSettings
-from alita.tr_engine import tlang
-from alita.utils.caching import ADMIN_CACHE, admin_cache_reload
-from alita.utils.parser import mention_html
-from alita.utils.regex_utils import regex_searcher
+from ineruki import LOGGER, MESSAGE_DUMP, SUPPORT_STAFF
+from ineruki.bot_class import Ineruki
+from ineruki.database.antispam_db import ANTISPAM_BANNED, GBan
+from ineruki.database.approve_db import Approve
+from ineruki.database.blacklist_db import Blacklist
+from ineruki.database.group_blacklist import BLACKLIST_CHATS
+from ineruki.database.pins_db import Pins
+from ineruki.database.warns_db import Warns, WarnSettings
+from ineruki.tr_engine import tlang
+from ineruki.utils.caching import ADMIN_CACHE, admin_cache_reload
+from ineruki.utils.parser import mention_html
+from ineruki.utils.regex_utils import regex_searcher
 
 # Initialise
 gban_db = GBan()
@@ -198,7 +198,7 @@ async def bl_watcher(_, m: Message):
 
 @Ineruki.on_message(filters.user(list(ANTISPAM_BANNED)) & filters.group)
 async def gban_watcher(c: Ineruki, m: Message):
-    from alita import SUPPORT_GROUP
+    from ineruki import SUPPORT_GROUP
 
     try:
         _banned = gban_db.check_gban(m.from_user.id)
@@ -240,7 +240,7 @@ async def gban_watcher(c: Ineruki, m: Message):
 
 @Ineruki.on_message(filters.chat(BLACKLIST_CHATS))
 async def bl_chats_watcher(c: Ineruki, m: Message):
-    from alita import SUPPORT_GROUP
+    from ineruki import SUPPORT_GROUP
 
     await c.send_message(
         m.chat.id,

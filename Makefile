@@ -9,8 +9,8 @@ install:
 	@poetry install --no-dev --no-interaction
 
 run:
-	@python3 -m alita
+	@python3 -m ineruki
 
 clean:
-	@rm -rf alita/logs
+	@rm -rf ineruki/logs
 	@pyclean .

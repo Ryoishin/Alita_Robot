@@ -20,18 +20,18 @@ from pyrogram import filters
 from pyrogram.errors import RPCError
 from pyrogram.types import Message
 
-from alita import LOGGER
-from alita.bot_class import Ineruki
-from alita.database.approve_db import Approve
-from alita.database.blacklist_db import Blacklist
-from alita.database.chats_db import Chats
-from alita.database.filters_db import Filters
-from alita.database.lang_db import Langs
-from alita.database.notes_db import Notes, NotesSettings
-from alita.database.pins_db import Pins
-from alita.database.reporting_db import Reporting
-from alita.database.rules_db import Rules
-from alita.database.users_db import Users
+from ineruki import LOGGER
+from ineruki.bot_class import Ineruki
+from ineruki.database.approve_db import Approve
+from ineruki.database.blacklist_db import Blacklist
+from ineruki.database.chats_db import Chats
+from ineruki.database.filters_db import Filters
+from ineruki.database.lang_db import Langs
+from ineruki.database.notes_db import Notes, NotesSettings
+from ineruki.database.pins_db import Pins
+from ineruki.database.reporting_db import Reporting
+from ineruki.database.rules_db import Rules
+from ineruki.database.users_db import Users
 
 
 @Ineruki.on_message(filters.group, group=4)

@@ -59,9 +59,9 @@ if version_info[0] < 3 or version_info[1] < 7:
 # the secret configuration specific things
 try:
     if environ.get("ENV"):
-        from alita.vars import Config
+        from ineruki.vars import Config
     else:
-        from alita.vars import Development as Config
+        from ineruki.vars import Development as Config
 except Exception as ef:
     LOGGER.error(ef)  # Print Error
     LOGGER.error(format_exc())
@@ -129,7 +129,7 @@ async def load_cmds(all_plugins):
             LOGGER.warning(f"Not loading '{single}' s it's added in NO_LOAD list")
             continue
 
-        imported_module = imp_mod("alita.plugins." + single)
+        imported_module = imp_mod("ineruki.plugins." + single)
         if not hasattr(imported_module, "__PLUGIN__"):
             continue
 

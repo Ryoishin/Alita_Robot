@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "alita_robot"
+name = "ineruki_robot"
 version = "0.2.0"
 description = "Ineruki is a Telegram Group management bot made using Pyrogram and Python, which makes it modern and faster than most of the Telegram chat managers."
 authors = ["Divkix <techdroidroot@gmail.com>"]

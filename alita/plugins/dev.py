@@ -34,15 +34,15 @@ from speedtest import Speedtest
 from time import gmtime, strftime, time
 from traceback import format_exc
 
-from alita import LOGFILE, LOGGER, MESSAGE_DUMP, PREFIX_HANDLER, UPTIME
-from alita.bot_class import Ineruki
-from alita.database.chats_db import Chats
-from alita.tr_engine import tlang
-from alita.utils.clean_file import remove_markdown_and_html
-from alita.utils.custom_filters import command
-from alita.utils.http_helper import HTTPx
-from alita.utils.parser import mention_markdown
-from alita.utils.paste import paste
+from ineruki import LOGFILE, LOGGER, MESSAGE_DUMP, PREFIX_HANDLER, UPTIME
+from ineruki.bot_class import Ineruki
+from ineruki.database.chats_db import Chats
+from ineruki.tr_engine import tlang
+from ineruki.utils.clean_file import remove_markdown_and_html
+from ineruki.utils.custom_filters import command
+from ineruki.utils.http_helper import HTTPx
+from ineruki.utils.parser import mention_markdown
+from ineruki.utils.paste import paste
 
 
 @Ineruki.on_message(command("ping", sudo_cmd=True))

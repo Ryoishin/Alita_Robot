@@ -20,10 +20,10 @@ from pyrogram import filters
 from pyrogram.types import CallbackQuery, Message
 from pyromod.helpers import ikb
 
-from alita import LOGGER
-from alita.bot_class import Ineruki
-from alita.tr_engine import tlang
-from alita.utils.custom_filters import command
+from ineruki import LOGGER
+from ineruki.bot_class import Ineruki
+from ineruki.tr_engine import tlang
+from ineruki.utils.custom_filters import command
 
 
 async def gen_formatting_kb(m):

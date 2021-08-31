@@ -28,23 +28,23 @@ from pyrogram.types import (
     Message,
 )
 
-from alita import LOGGER, SUPPORT_STAFF
-from alita.bot_class import Ineruki
-from alita.database.rules_db import Rules
-from alita.database.users_db import Users
-from alita.database.warns_db import Warns, WarnSettings
-from alita.tr_engine import tlang
-from alita.utils.caching import ADMIN_CACHE, admin_cache_reload
-from alita.utils.custom_filters import admin_filter, command, restrict_filter
-from alita.utils.extract_user import extract_user
-from alita.utils.parser import mention_html
+from ineruki import LOGGER, SUPPORT_STAFF
+from ineruki.bot_class import Ineruki
+from ineruki.database.rules_db import Rules
+from ineruki.database.users_db import Users
+from ineruki.database.warns_db import Warns, WarnSettings
+from ineruki.tr_engine import tlang
+from ineruki.utils.caching import ADMIN_CACHE, admin_cache_reload
+from ineruki.utils.custom_filters import admin_filter, command, restrict_filter
+from ineruki.utils.extract_user import extract_user
+from ineruki.utils.parser import mention_html
 
 
 @Ineruki.on_message(
     command(["warn", "swarn", "dwarn"]) & restrict_filter,
 )
 async def warn(c: Ineruki, m: Message):
-    from alita import BOT_ID, BOT_USERNAME
+    from ineruki import BOT_ID, BOT_USERNAME
 
     if m.reply_to_message:
         r_id = m.reply_to_message.message_id
@@ -156,7 +156,7 @@ async def warn(c: Ineruki, m: Message):
 
 @Ineruki.on_message(command("resetwarns") & restrict_filter)
 async def reset_warn(c: Ineruki, m: Message):
-    from alita import BOT_ID
+    from ineruki import BOT_ID
 
     if not len(m.command) > 1 and not m.reply_to_message:
         await m.reply_text("I can't warn nothing! Tell me user whom I should warn")
@@ -196,7 +196,7 @@ async def reset_warn(c: Ineruki, m: Message):
 
 @Ineruki.on_message(command("warns") & filters.group)
 async def list_warns(c: Ineruki, m: Message):
-    from alita import BOT_ID
+    from ineruki import BOT_ID
 
     user_id, user_first_name, _ = await extract_user(c, m)
 
@@ -239,7 +239,7 @@ async def list_warns(c: Ineruki, m: Message):
     command(["rmwarn", "removewarn"]) & restrict_filter,
 )
 async def remove_warn(c: Ineruki, m: Message):
-    from alita import BOT_ID
+    from ineruki import BOT_ID
 
     if not len(m.command) > 1 and not m.reply_to_message:
         await m.reply_text(

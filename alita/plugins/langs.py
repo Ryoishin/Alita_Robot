@@ -21,11 +21,11 @@ from pyrogram import filters
 from pyrogram.types import CallbackQuery, Message
 from pyromod.helpers import ikb
 
-from alita import LOGGER
-from alita.bot_class import Ineruki
-from alita.database.lang_db import Langs
-from alita.tr_engine import lang_dict, tlang
-from alita.utils.custom_filters import admin_filter, command
+from ineruki import LOGGER
+from ineruki.bot_class import Ineruki
+from ineruki.database.lang_db import Langs
+from ineruki.tr_engine import lang_dict, tlang
+from ineruki.utils.custom_filters import admin_filter, command
 
 
 async def gen_langs_kb():
@@ -41,7 +41,7 @@ async def gen_langs_kb():
         [
             (
                 "🌎 Help us with translations!",
-                "https://crowdin.com/project/alita_robot",
+                "https://crowdin.com/project/ineruki_robot",
                 "url",
             )
         ],
@@ -129,7 +129,7 @@ __buttons__ = [
     [
         (
             "🌎 Help us with translations!",
-            "https://crowdin.com/project/alita_robot",
+            "https://crowdin.com/project/ineruki_robot",
             "url",
         ),
     ],

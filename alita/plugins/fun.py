@@ -20,11 +20,11 @@ from html import escape
 from pyrogram.types import Message
 from secrets import choice
 
-from alita.bot_class import Ineruki
-from alita.tr_engine import tlang
-from alita.utils import fun_strings
-from alita.utils.custom_filters import command
-from alita.utils.extract_user import extract_user
+from ineruki.bot_class import Ineruki
+from ineruki.tr_engine import tlang
+from ineruki.utils import fun_strings
+from ineruki.utils.custom_filters import command
+from ineruki.utils.extract_user import extract_user
 
 
 @Ineruki.on_message(command("shout"))

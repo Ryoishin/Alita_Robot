@@ -16,8 +16,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-from alita.bot_class import Ineruki
-from alita.utils.msg_types import Types
+from ineruki.bot_class import Ineruki
+from ineruki.utils.msg_types import Types
 
 
 async def send_cmd(client: Ineruki, msgtype: int):

@@ -20,11 +20,11 @@ from asyncio import sleep
 from pyrogram.errors import ChatAdminRequired, RPCError
 from pyrogram.types import ChatPermissions, Message
 
-from alita import LOGGER
-from alita.bot_class import Ineruki
-from alita.database.approve_db import Approve
-from alita.tr_engine import tlang
-from alita.utils.custom_filters import admin_filter, command, restrict_filter
+from ineruki import LOGGER
+from ineruki.bot_class import Ineruki
+from ineruki.database.approve_db import Approve
+from ineruki.tr_engine import tlang
+from ineruki.utils.custom_filters import admin_filter, command, restrict_filter
 
 
 @Ineruki.on_message(command("locktypes") & admin_filter)

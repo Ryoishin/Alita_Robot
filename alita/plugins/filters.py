@@ -24,13 +24,13 @@ from re import escape as re_escape
 from secrets import choice
 from traceback import format_exc
 
-from alita.bot_class import LOGGER, Ineruki
-from alita.database.filters_db import Filters
-from alita.utils.cmd_senders import send_cmd
-from alita.utils.custom_filters import admin_filter, command, owner_filter
-from alita.utils.msg_types import Types, get_filter_type
-from alita.utils.regex_utils import regex_searcher
-from alita.utils.string import (
+from ineruki.bot_class import LOGGER, Ineruki
+from ineruki.database.filters_db import Filters
+from ineruki.utils.cmd_senders import send_cmd
+from ineruki.utils.custom_filters import admin_filter, command, owner_filter
+from ineruki.utils.msg_types import Types, get_filter_type
+from ineruki.utils.regex_utils import regex_searcher
+from ineruki.utils.string import (
     build_keyboard,
     escape_mentions_using_curly_brackets,
     parse_button,

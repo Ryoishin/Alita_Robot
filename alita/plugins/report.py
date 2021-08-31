@@ -23,11 +23,11 @@ from pyromod.helpers import ikb
 from time import time
 from traceback import format_exc
 
-from alita import LOGGER, SUPPORT_STAFF
-from alita.bot_class import Ineruki
-from alita.database.reporting_db import Reporting
-from alita.utils.custom_filters import admin_filter, command
-from alita.utils.parser import mention_html
+from ineruki import LOGGER, SUPPORT_STAFF
+from ineruki.bot_class import Ineruki
+from ineruki.database.reporting_db import Reporting
+from ineruki.utils.custom_filters import admin_filter, command
+from ineruki.utils.parser import mention_html
 
 
 @Ineruki.on_message(

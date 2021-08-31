@@ -24,14 +24,14 @@ from pyrogram.errors import (
 )
 from pyrogram.types import ChatPermissions, Message
 
-from alita import LOGGER, SUPPORT_GROUP, SUPPORT_STAFF, BOT_ID
-from alita.bot_class import Ineruki
-from alita.tr_engine import tlang
-from alita.utils.caching import ADMIN_CACHE, admin_cache_reload
-from alita.utils.custom_filters import command, restrict_filter
-from alita.utils.extract_user import extract_user
-from alita.utils.parser import mention_html
-from alita.utils.string import extract_time
+from ineruki import LOGGER, SUPPORT_GROUP, SUPPORT_STAFF, BOT_ID
+from ineruki.bot_class import Ineruki
+from ineruki.tr_engine import tlang
+from ineruki.utils.caching import ADMIN_CACHE, admin_cache_reload
+from ineruki.utils.custom_filters import command, restrict_filter
+from ineruki.utils.extract_user import extract_user
+from ineruki.utils.parser import mention_html
+from ineruki.utils.string import extract_time
 
 
 @Ineruki.on_message(command(["tmute", "stmute", "dtmute"]) & restrict_filter)

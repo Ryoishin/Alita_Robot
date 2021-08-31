@@ -21,11 +21,11 @@ from pyrogram import filters
 from pyrogram.types import CallbackQuery, Message
 from pyromod.helpers import ikb
 
-from alita import LOGGER
-from alita.bot_class import Ineruki
-from alita.database.blacklist_db import Blacklist
-from alita.tr_engine import tlang
-from alita.utils.custom_filters import command, owner_filter, restrict_filter
+from ineruki import LOGGER
+from ineruki.bot_class import Ineruki
+from ineruki.database.blacklist_db import Blacklist
+from ineruki.tr_engine import tlang
+from ineruki.utils.custom_filters import command, owner_filter, restrict_filter
 
 
 @Ineruki.on_message(command("blacklist") & filters.group)

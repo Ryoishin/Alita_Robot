@@ -22,15 +22,15 @@ from pyrogram.errors import MessageTooLong, PeerIdInvalid, UserIsBlocked
 from pyrogram.types import Message
 from traceback import format_exc
 
-from alita import BOT_ID, LOGGER, MESSAGE_DUMP, SUPPORT_GROUP, SUPPORT_STAFF
-from alita.bot_class import Ineruki
-from alita.database.antispam_db import GBan
-from alita.database.users_db import Users
-from alita.tr_engine import tlang
-from alita.utils.clean_file import remove_markdown_and_html
-from alita.utils.custom_filters import command
-from alita.utils.extract_user import extract_user
-from alita.utils.parser import mention_html
+from ineruki import BOT_ID, LOGGER, MESSAGE_DUMP, SUPPORT_GROUP, SUPPORT_STAFF
+from ineruki.bot_class import Ineruki
+from ineruki.database.antispam_db import GBan
+from ineruki.database.users_db import Users
+from ineruki.tr_engine import tlang
+from ineruki.utils.clean_file import remove_markdown_and_html
+from ineruki.utils.custom_filters import command
+from ineruki.utils.extract_user import extract_user
+from ineruki.utils.parser import mention_html
 
 # Initialize
 db = GBan()

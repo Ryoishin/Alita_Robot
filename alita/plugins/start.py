@@ -21,11 +21,11 @@ from pyrogram.errors import MessageNotModified, QueryIdInvalid, UserIsBlocked
 from pyrogram.types import CallbackQuery, Message
 from pyromod.helpers import ikb
 
-from alita import HELP_COMMANDS, LOGGER
-from alita.bot_class import Ineruki
-from alita.tr_engine import tlang
-from alita.utils.custom_filters import command
-from alita.utils.start_utils import (
+from ineruki import HELP_COMMANDS, LOGGER
+from ineruki.bot_class import Ineruki
+from ineruki.tr_engine import tlang
+from ineruki.utils.custom_filters import command
+from ineruki.utils.start_utils import (
     gen_cmds_kb,
     gen_start_kb,
     get_help_msg,
@@ -152,7 +152,7 @@ async def commands_menu(_, q: CallbackQuery):
 
 @Ineruki.on_message(command("help"))
 async def help_menu(_, m: Message):
-    from alita import BOT_USERNAME
+    from ineruki import BOT_USERNAME
 
     if len(m.text.split()) >= 2:
         help_option = (m.text.split(None, 1)[1]).lower()
