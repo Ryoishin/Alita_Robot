@@ -1,0 +1,39 @@
+name: Ryoishin
+
+on: push
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - name: Find and Replace
+
+        uses: jacobtomlinson/gha-find-replace@master
+
+        with:
+
+          find: "Alita"
+
+          replace: "Ineruki"
+
+      - name: Create Pull Request
+
+        uses: stefanzweifel/git-auto-commit-action@v4
+
+        with:
+
+          commit_message: 'Stuffs'
+
+          commit_options: '--no-verify'
+
+          repository: .
+
+          commit_user_name: Ryoishin
+
+          commit_user_email: ryoishincoder@gmail.com
