@@ -1,25 +1,25 @@
 # Ineruki_Robot
 
 <p align='center'>
-  <img src="https://img.shields.io/github/forks/DivideProjects/Ineruki_Robot?style=flat-square" alt="Forks">
-  <img src="https://img.shields.io/github/stars/DivideProjects/Ineruki_Robot?style=flat-square" alt="Stars">
-  <img src="https://img.shields.io/github/issues/DivideProjects/Ineruki_Robot?style=flat-square" alt="Issues">
-  <img src="https://img.shields.io/github/license/DivideProjects/Ineruki_Robot?style=flat-square" alt="LICENSE">
-  <img src="https://img.shields.io/github/contributors/DivideProjects/Ineruki_Robot?style=flat-square" alt="Contributors">
-  <img src="https://img.shields.io/github/repo-size/DivideProjects/Ineruki_Robot?style=flat-square" alt="Repo Size">
-  <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/DivideProjects/Ineruki_Robot&amp;title=Profile%20Views" alt="Views">
+  <img src="https://img.shields.io/github/forks/Ryoishin/Ineruki_Robot?style=flat-square" alt="Forks">
+  <img src="https://img.shields.io/github/stars/Ryoishin/Ineruki_Robot?style=flat-square" alt="Stars">
+  <img src="https://img.shields.io/github/issues/Ryoishin/Ineruki_Robot?style=flat-square" alt="Issues">
+  <img src="https://img.shields.io/github/license/Ryoishin/Ineruki_Robot?style=flat-square" alt="LICENSE">
+  <img src="https://img.shields.io/github/contributors/Ryoishin/Ineruki_Robot?style=flat-square" alt="Contributors">
+  <img src="https://img.shields.io/github/repo-size/Ryoishin/Ineruki_Robot?style=flat-square" alt="Repo Size">
+  <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/Ryoishin/Ineruki_Robot&amp;title=Profile%20Views" alt="Views">
 </p>
 
 <p align='center'>
   <a href="https://www.python.org/" alt="made-with-python"> <img src="https://img.shields.io/badge/Made%20with-Python-1f425f.svg?style=flat-square&logo=python&color=blue" /> </a>
-  <a href="https://github.com/DivideProjects/Ineruki_Robot" alt="Docker!"> <img src="https://aleen42.github.io/badges/src/docker.svg" /> </a>
-  <a href="https://deepsource.io/gh/DivideProjects/Ineruki_Robot/?ref=repository-badge"><img src="https://static.deepsource.io/deepsource-badge-light-mini.svg" alt="DeepSource"></a>
+  <a href="https://github.com/Ryoishin/Ineruki_Robot" alt="Docker!"> <img src="https://aleen42.github.io/badges/src/docker.svg" /> </a>
+  <a href="https://deepsource.io/gh/Ryoishin/Ineruki_Robot/?ref=repository-badge"><img src="https://static.deepsource.io/deepsource-badge-light-mini.svg" alt="DeepSource"></a>
   <a href="https://makeapullrequest.com" alt="PRs Welcome"> <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" /> </a>
 </p>
 
 <p align='center'>
- <a href="https://heroku.com/deploy?template=https://github.com/DivideProjects/Ineruki_Robot"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy on Heroku"></a></br></br>
-  <a href="https://t.me/DivideProjects"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white" alt="Join us on Telegram"></a></br></br>
+ <a href="https://heroku.com/deploy?template=https://github.com/Ryoishin/Ineruki_Robot"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy on Heroku"></a></br></br>
+  <a href="https://t.me/Ryoishin"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&amp;logo=telegram&amp;logoColor=white" alt="Join us on Telegram"></a></br></br>
 
 </p>
 
@@ -64,13 +64,13 @@ It really motivates me to continue this project further.
 
 **Note:** By default the bot uses the default heroku-20 stack.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/DivideProjects/Ineruki_Robot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Ryoishin/Ineruki_Robot)
 
 ### Traditional
 
 - Install Python v3.7 or later from [Python's Website](https://python.org)
 - Install virtualenv using `python3 -m pip -U install poetry`.
-- **Fork** or Clone the project using `git clone https://github.com/DivideProjects/Ineruki_Robot.git`
+- **Fork** or Clone the project using `git clone https://github.com/Ryoishin/Ineruki_Robot.git`
 - Install the requirements using `poetry install`
 - Fill in all the variables in *Development* class, not *Config* class. **Sudo, Dev, Whitelist** users are optional!!
 - Change to poetry shell by using: `poetry shell`
@@ -107,8 +107,8 @@ If all works well, bot should send message to the **MESSAGE_DUMP** Group!
 ### Copyright & License
 
 * Copyright (C) 2020-2021 by [Divkix](https://github.com/Divkix) ❤️️
-* Licensed under the terms of the [GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 29 June 2007](https://github.com/DivideProjects/Ineruki_Robot/blob/master/LICENSE)
+* Licensed under the terms of the [GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 29 June 2007](https://github.com/Ryoishin/Ineruki_Robot/blob/master/LICENSE)
 
 ## Powered By
 
-[![DivideProjects](https://img.shields.io/badge/Divide-Projects-green?style=for-the-badge&logo=appveyor)](https://t.me/DivideProjectsDiscussion)
+[![Ryoishin](https://img.shields.io/badge/Divide-Projects-green?style=for-the-badge&logo=appveyor)](https://t.me/RyoishinDiscussion)

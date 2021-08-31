@@ -9,9 +9,9 @@
       "ineruki",
       "ineruki_robot"
    ],
-   "repository": "https://github.com/DivideProjects/Ineruki_Robot",
-   "website": "https://t.me/DivideProjects",
-   "success_url": "https://t.me/DivideProjects",
+   "repository": "https://github.com/Ryoishin/Ineruki_Robot",
+   "website": "https://t.me/Ryoishin",
+   "success_url": "https://t.me/Ryoishin",
    "env": {
       "BOT_TOKEN": {
          "description": "Your telegram bot token, get from @Botfather in telegram.",
@@ -46,7 +46,7 @@
       "SUPPORT_CHAT": {
          "description": "Your Telegram support group chat username where user's can contact in case of a problem..",
          "required": true,
-         "value": "DivideProjects"
+         "value": "Ryoishin"
       },
       "MESSAGE_DUMP": {
          "description": "Event logs channel where bot will send updates.",
