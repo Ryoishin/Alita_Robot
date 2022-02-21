@@ -18,9 +18,9 @@ jobs:
 
         with:
 
-          find: "DivideProjects"
+          find: "Ryoishin"
 
-          replace: "Ryoishin"
+          replace: "ryoishin"
 
       - name: Create Pull Request
 
